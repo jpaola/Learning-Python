@@ -57,6 +57,171 @@ Methods:
 - `.append()` - A list method to insert an element at the end of the list.
 - `.remove()` - A list method to remove the first instance of a specified element.
 
+#### Range
+
+The `range()` function returns a sequence of numbers, starting from `0` by default, and increments by `1` (by default), and stops before a specified number.
+
+Syntax:
+```
+range(start, stop, step)
+```
+
+- `start`	- Optional. An integer number specifying at which position to start. Default is `0`
+- `stop`	- Required. An integer number specifying at which position to stop (`not included`).
+- `step`	- Optional. An integer number specifying the incrementation. Default is `1`
+
+
+```
+x = range(2, 14, 4)
+print(list(x))
+# Output: [2, 6, 10]
+```
+
+#### Slicing Lists I
+In Python, often we want to extract only a portion of a list. Dividing a list in such a manner is referred to as slicing.
+
+Lets assume we have a list of letters:
+
+```
+letters = ["a", "b", "c", "d", "e", "f", "g"]
+```
+
+Suppose we want to select from "b" through "f".
+
+We can do this using the following syntax: `letters[start:end]`, where:
+
+start is the index of the first element that we want to include in our selection. In this case, we want to start at "b", which has index 1.
+end is the index of one more than the last index that we want to include. The last element we want is "f", which has index 5, so end needs to be 6.
+
+```
+sliced_list = letters[1:6]
+print(sliced_list)
+```
+
+Would output:
+
+```
+["b", "c", "d", "e", "f"]
+```
+
+
+#### Slicing Lists II
+
+Slicing syntax in Python is very flexible.
+
+Take the list fruits as our example:
+
+```
+fruits = ["apple", "cherry", "pineapple", "orange", "mango"]
+```
+
+If we want to select the first `n` elements of a list, we could use the following code:
+
+```
+fruits[:n]
+```
+
+For our `fruits` list, suppose we wanted to slice the first three elements.
+
+The following code would start slicing from index `0` and up to index `3`. Note that the fruit at index `3` (`orange`) is not included in the results.
+
+```
+print(fruits[:3])
+```
+
+Would output:
+
+```
+['apple', 'cherry', 'pineapple']
+```
+We can do something similar when we want to slice the `last n elements` in a list:
+
+```
+fruits[-n:]
+```
+
+For our `fruits` list, suppose we wanted to slice the last two elements.
+
+This code slices from the element at index `-2` up through the last index.
+
+```
+print(fruits[-2:])
+```
+
+Would output:
+
+```
+['orange', 'mango']
+```
+
+Negative indices can also accomplish taking `all but n last elements` of a list.
+
+```
+fruits[:-n]
+```
+
+For our fruits example, suppose we wanted to slice all but the last element from the list.
+
+This example starts counting from the `0` index up to the element at index `-1`.
+
+```
+print(fruits[:-1])
+```
+
+Would output:
+
+```
+['apple', 'cherry', 'pineapple', 'orange']
+```
+
+
+#### Sorting I
+Often, we will want to sort a list in either numerical (1, 2, 3, …) or alphabetical (a, b, c, …) order.
+
+The `.sort()` method sorts a list in alphabetical order.
+
+```
+names = ["Xander", "Buffy", "Angel", "Willow", "Giles"]
+names.sort()
+print(names)
+# Output : ['Angel', 'Buffy', 'Giles', 'Willow', 'Xander']
+```
+
+`.sort()` also provides us the option to go in reverse. Instead of sorting in ascending order, we can do so in descending order.
+
+```
+names = ["Xander", "Buffy", "Angel", "Willow", "Giles"]
+names.sort(reverse=True)
+print(names)
+# Output: ['Xander', 'Willow', 'Giles', 'Buffy', 'Angel']
+
+```
+
+#### Sorting II
+A second way of sorting a list in Python is to use the built-in function `sorted()`.
+
+The `sorted()` function is different from the `.sort()` method in two ways:
+
+It comes before a list, instead of after as all built-in functions do.
+It generates a new list rather than modifying the one that already exists.
+
+Using `.sort()`:
+```
+names = ["Xander", "Buffy", "Angel", "Willow", "Giles"]
+sorted_names = sorted(names)
+print(sorted_names)
+# Output: ['Angel', 'Buffy', 'Giles', 'Willow', 'Xander']
+```
+
+Using `sorted()`:
+
+```
+names = ["Xander", "Buffy", "Angel", "Willow", "Giles"]
+sorted_names = sorted(names)
+print(names)
+# Output: ["Xander", "Buffy", "Angel", "Willow", "Giles"]
+```
+
 ### Data Types
 
 Python is a strongly typed language, in the sense that at runtime it prevents typing errors and it engages in little implicit type conversion or casting, i.e. converting one type to another without a specific call to a conversion function.
