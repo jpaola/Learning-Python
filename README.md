@@ -222,6 +222,97 @@ print(names)
 # Output: ["Xander", "Buffy", "Angel", "Willow", "Giles"]
 ```
 
+### Tuples
+Tuple is one of the built-in data types in Python. A Python tuple is a sequence of comma separated items, enclosed in parentheses (). The items in a Python tuple need not be of same data type. Like `Lists` a tuple is an ordered collection of items. Each item in the tuple has a unique position index, starting from 0.
+
+To access values in tuple, use the square brackets for slicing along with the index or indices to obtain value available at that index.
+
+```
+tup1 = ('physics', 'chemistry', 1997, 2000);
+tup2 = (1, 2, 3, 4, 5, 6, 7 );
+print ("tup1[0]: ", tup1[0]);
+print ("tup2[1:5]: ", tup2[1:5]);
+# Output: 
+# tup1[0]:  physics 
+# tup2[1:5]:  [2, 3, 4, 5]
+```
+
+** `Tuples are immutable` which means you cannot update or change the values of tuple elements.
+
+```
+tup1 = (12, 34.56);
+tup2 = ('abc', 'xyz');
+
+# Following action is not valid for tuples
+# tup1[0] = 100;
+
+# So let's create a new tuple as follows
+tup3 = tup1 + tup2;
+print (tup3);
+
+# Output: (12, 34.56, 'abc', 'xyz')
+```
+Removing individual tuple elements is not possible. There is, of course, nothing wrong with putting together another tuple with the undesired elements discarded.
+
+To explicitly remove an entire tuple, just use the `del` statement.
+
+```
+tup = ('physics', 'chemistry', 1997, 2000);
+print (tup);
+del tup;
+print ("After deleting tup : ");
+print (tup);
+
+# Output:
+# ('physics', 'chemistry', 1997, 2000)
+# After deleting tup :
+# Traceback (most recent call last):
+#    File "test.py", line 9, in <module>
+#       print (tup);
+# NameError: name 'tup' is not defined
+```
+Note an exception raised, this is because after `del tup` tuple does not exist any more
+
+#### Combining Lists
+In Python, we have an assortment of built-in functions that allow us to build our programs faster and cleaner. One of those functions is `zip()`.
+
+The `zip()` function allows us to quickly combine associated data-sets without needing to rely on multi-dimensional lists.
+
+```
+names = ["Jenny", "Alexus", "Sam", "Grace"]
+heights = [61, 70, 67, 64]
+```
+
+If we wanted to create a nested list that paired each name with a height, we could use the built-in function `zip()`.
+
+The `zip()` function takes two (or more) lists as inputs and returns an object that contains a list of pairs. Each pair contains one element from each of the inputs. This is how we would do it for our `names` and `heights` lists:
+
+```
+names_and_heights = zip(names, heights)
+```
+
+If we were to then examine this new variable names_and_heights, we would find it looks a bit strange:
+
+```
+print(names_and_heights)
+# Output: <zip object at 0x7f1631e86b48>
+```
+
+This zip object contains the location of this variable in our computer’s memory. To properly print the list we must use the built-in function `list()`:
+
+```
+converted_list = list(names_and_heights)
+print(converted_list)
+
+# Output : [('Jenny', 61), ('Alexus', 70), ('Sam', 67), ('Grace', 64)]
+```
+
+Notice two things:
+
+1. Our data set has been converted from a zip memory object to an actual list (denoted by `[ ]`)
+2. Our inner lists don’t use square brackets `[ ]` around the values. This is because they have been converted into `tuples` (an immutable type of list).
+
+
 ### Data Types
 
 Python is a strongly typed language, in the sense that at runtime it prevents typing errors and it engages in little implicit type conversion or casting, i.e. converting one type to another without a specific call to a conversion function.
