@@ -348,3 +348,33 @@ print(isinstance(languages, list)) # Output: False
 print(isinstance(languages, tuple)) # Output: True
 
 ```
+
+### For Loops
+
+```
+for <temporary variable> in <collection>:
+  <action>
+```
+
+1. A `for` keyword indicates the start of a `for` loop.
+2. A `<temporary variable>` that is used to represent the value of the element in the collection the loop is currently on.
+3. An `in` keyword separates the temporary variable from the collection used for iteration.
+4. A `<collection>` to loop over. In our examples, we will be using a list.
+5. An `<action>` to do anything on each iteration of the loop.
+
+Example:
+
+```
+board_games = ["Settlers of Catan", "Carcassone", "Power Grid", "Agricola", "Scrabble"]
+
+for game in board_games:
+    print(game)
+
+Output:
+Settlers of Catan
+Carcassone
+Power Grid
+Agricola
+Scrabble
+
+```
