@@ -1,8 +1,32 @@
+
+**Table of Contents**
+
+ * [Introduction](#introduction)
+    * [Details](#details)
+ * [Notes](#notes)
+    * [Common Errors](#common-errors)
+    * [Variables](#variables-and-naming-convention)
+    * [Lists](#lists)
+        * [Range](#range)
+        * [Slicing Lists I](#slicing-lists-i)
+        * [Slicing Lists II](#slicing-lists-ii)
+        * [Sorting I](#sorting-i)
+        * [Sorting II](#sorting-ii)
+    * [Tuples](#tuples)
+        * [Combining Lists](#combining-lists)
+    * [Data Types](#data-types)
+    * [Loops](#Loops)
+        * [While Loops](#while-loops)
+        * [For Loops](#for-loops)
+        * [Nested Loops](#nested-loops)
+        * [Break Keyword](#break-keyword)
+        * [Continue Keyword](#continue-keyword)
+
 # Introduction
 
 A compilation of small projects/scripts following my journey with learning concepts of the Python programming language.
 
-## Details
+### Details
 Each sub-folder holds a `README.md` file with details for that project/script, packages necessary and execution details.
 
 ## Notes
@@ -349,7 +373,35 @@ print(isinstance(languages, tuple)) # Output: True
 
 ```
 
-### For Loops
+### Loops
+A loop is a control structure that can execute a statement or group of statements repeatedly. Python has three types of loops: while loops, for loops, and nested loops.
+
+
+#### While Loops
+
+A while loop will repeatedly execute a code block as long as a condition evaluates to `True`.
+
+The condition of a while loop is always checked first before the block of code runs. If the condition is not met initially, then the code block will never run.
+
+```
+while condition:
+  # Code inside
+```
+
+This loop will only run 1 time:
+
+```
+hungry = True
+
+while hungry:
+  print("Time to eat!")
+  hungry = False
+```
+
+#### For Loops
+A for loop can be used to iterate over and perform an action one time for each element in a list.
+
+Proper for loop syntax assigns a temporary value, the current item of the list, to a variable on each successive iteration:
 
 ```
 for <temporary variable> in <collection>:
@@ -377,4 +429,54 @@ Power Grid
 Agricola
 Scrabble
 
+```
+
+#### Nested Loops
+
+Loops can be nested inside other loops. Nested loops can be used to access items of lists which are inside other lists. The item selected from the outer loop can be used as the list for the inner loop to iterate over.
+
+```
+groups = [["Jobs", "Gates"], ["Newton", "Euclid"], ["Einstein", "Feynman"]]
+
+# This outer loop will iterate over each list in the groups list
+for group in groups:
+  # This inner loop will go through each name in each list
+  for name in group:
+    print(name)
+
+```
+
+#### Break Keyword
+In a loop, the break keyword escapes the loop, regardless of the iteration number. Once break executes, the program will continue to execute after the loop.
+
+```
+numbers = [0, 254, 2, -1, 3]
+
+for num in numbers:
+  if (num < 0):
+    print("Negative number detected!")
+    break
+  print(num)
+```
+
+In this example, the output would be:
+
+```
+0
+254
+2
+Negative number detected!
+```
+
+#### Continue Keyword
+The continue keyword is used inside a loop to skip the remaining code inside the loop code block and begin the next loop iteration.
+
+```
+big_number_list = [1, 2, -1, 4, -5, 5, 2, -9]
+
+# Print only positive numbers:
+for i in big_number_list:
+  if i < 0:
+    continue
+  print(i)
 ```
