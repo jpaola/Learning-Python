@@ -7,7 +7,6 @@
     * [Common Errors](#common-errors)
     * [Variables](#variables-and-naming-convention)
     * [Lists](#lists)
-        * [List Comprehension](#list-comprehension)
         * [Range](#range)
         * [Slicing Lists I](#slicing-lists-i)
         * [Slicing Lists II](#slicing-lists-ii)
@@ -20,6 +19,7 @@
         * [While Loops](#while-loops)
         * [For Loops](#for-loops)
             * [For Loops with Range](#for-loops-with-range)
+            * [List Comprehension](#list-comprehension)
         * [Nested Loops](#nested-loops)
         * [Break Keyword](#break-keyword)
         * [Continue Keyword](#continue-keyword)
@@ -82,21 +82,6 @@ Methods:
 - `.sort()` /  `sorted()` - A method and built-in function to sort a list.
 - `.append()` - A list method to insert an element at the end of the list.
 - `.remove()` - A list method to remove the first instance of a specified element.
-
-#### List Comprehension
-Python list comprehensions provide a concise way for creating lists. It consists of brackets containing an expression followed by a for clause, then zero or more for or if clauses: `[EXPRESSION for ITEM in LIST <if CONDITIONAL>]`.
-
-The expressions can be anything - any kind of object can go into a list.
-
-A list comprehension always returns a list.
-
-```
-# List comprehension for the squares of all even numbers between 0 and 9
-result = [x**2 for x in range(10) if x % 2 == 0]
-
-print(result)
-# [0, 4, 16, 36, 64]
-```
 
 #### Range
 
@@ -462,6 +447,22 @@ for i in range(3):
 for i in range(3):
   print("WARNING")
 ```
+
+##### List Comprehension
+Python list comprehensions provide a concise way for creating lists. It consists of brackets containing an expression followed by a for clause, then zero or more for or if clauses: `[EXPRESSION for ITEM in LIST <if CONDITIONAL>]`.
+
+The expressions can be anything - any kind of object can go into a list.
+
+A list comprehension always returns a list.
+
+```
+# List comprehension for the squares of all even numbers between 0 and 9
+result = [x**2 for x in range(10) if x % 2 == 0]
+
+print(result)
+# [0, 4, 16, 36, 64]
+```
+
 
 #### Nested Loops
 
