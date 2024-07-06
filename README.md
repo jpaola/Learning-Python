@@ -24,6 +24,9 @@
         * [Break Keyword](#break-keyword)
         * [Continue Keyword](#continue-keyword)
     * [Functions](#functions)
+        * [Types of Arguments](#types-of-arguments)
+        * [Built-in Functions](#built-in-functions)
+        * [Scope](#scope)
 
 # Introduction
 
@@ -567,4 +570,134 @@ directions_to_timesSq()
 #   Walk 4 mins to 34th St Herald Square train station.
 #   Take the Northbound N, Q, R, or W train 1 stop.
 #   Get off the Times Square 42nd Street stop.
+```
+
+#### Types of Arguments
+
+In Python, there are 3 different types of arguments we can give a function.
+
+1. **Positional arguments**: arguments that can be called by their position in the function definition.
+2. **Keyword arguments**: arguments that can be called by their name.
+3. **Default arguments**: arguments that are given default values.
+
+Positional Arguments depend on their positions in the function call. Let’s look at a function called `calculate_taxi_price()` that allows our users to see how much a taxi would cost to their destination 🚕.
+
+```
+def calculate_taxi_price(miles_to_travel, rate, discount):
+  print(miles_to_travel * rate - discount )
+```
+
+In this function, `miles_to_travel` is *positioned* as the first parameter, rate is positioned as the second parameter, and discount is the third. When we call our function, the position of the arguments will be mapped to the positions defined in the function declaration.
+
+```
+# 100 is miles_to_travel
+# 10 is rate
+# 5 is discount
+calculate_taxi_price(100, 10, 5)
+```
+
+Alternatively, we can use *Keyword Arguments* where we explicitly refer to what each argument is assigned to in the function call. Notice in the code example below that the arguments do not follow the same order as defined in the function declaration.
+
+```
+calculate_taxi_price(rate=0.5, discount=10, miles_to_travel=100)
+```
+
+Lastly, sometimes we want to give our function parameters default values. We can provide a default value to a parameter by using the assignment operator (=). This will happen in the function declaration rather than the function call.
+
+Here is an example where the discount argument in our `calculate_taxi_price` function will always have a default value of 10:
+
+```
+def calculate_taxi_price(miles_to_travel, rate, discount = 10):
+  print(miles_to_travel * rate - discount )
+```
+
+When using a default argument, we can either choose to call the function without providing a value for a discount (and thus our function will use the default value assigned) or overwrite the default argument by providing our own:
+
+```
+# Using the default value of 10 for discount.
+calculate_taxi_price(10, 0.5)
+
+# Overwriting the default value of 10 with 20
+calculate_taxi_price(10, 0.5, 20)
+```
+
+#### Built-in Functions
+
+[Built-in functions](https://docs.python.org/3/library/functions.html) are functions that come built into Python ready for us to use. Some examples of built-in functions are `print()`, `len()` and `str()`.
+
+```
+destination_name = "Bogota, Colombia"
+
+# Built-in function: len()
+length_of_destination = len(destination_name)
+
+# Built-in function: print()
+print(length_of_destination)
+
+# Output: 16 (including spaces)
+```
+
+There are even more obscure built-in functions like `help()` where Python will print documentation for us and provide some details:
+
+```
+help("string")
+```
+
+Would output (this is the shortened version, to view the full output try this on your IDE):
+
+```
+Help on module string:
+
+NAME
+    string - A collection of string constants.
+
+MODULE REFERENCE
+    https://docs.python.org/3.6/library/string
+    
+    The following documentation is automatically generated from the Python
+    source files.  It may be incomplete, incorrect or include features that
+    are considered implementation detail and may vary between Python
+    implementations.  When in doubt, consult the module reference at the
+    location listed above.
+```
+
+#### Scope
+`Scope` refers to the areas where variables are visible and accessible. Variables that can be accessed anywhere in a Python program are in the global scope. Conversely, variables that are defined within the body of structures like classes and methods exist only in the local scope.
+
+1. *Local Scope* - Suppose a variable is initialized within a function. This variable can only be used within that function and not from outside the function.
+
+```
+def my_function():
+ x = 200
+ print(x)
+
+my_function()
+```
+
+2. *Global Scope* - A variable initialized in the main body is defined as a global variable and can be used anywhere in the code, including nested blocks, loops, etc. This is because these variables exist in the global scope of the code.
+
+```
+x = 200
+
+def fun():
+  print(x)
+
+fun()
+
+print(x)
+```
+
+3. *Nested Functions and Local Scope* - In the example below, a variable `x` is defined within the local scope of the `outer_function()` function, followed by a defined `inner_function()` function. Since `inner_function()` exists within the local scope of `outer_function()`, `x` can be accessed and printed within `inner_function()`:
+
+```
+def outer_function():
+  x = 200
+  # Initialized in outer function
+
+  def inner_function():
+    print(x)
+  inner_function()
+
+outer_function()
+# Output: 200
 ```
