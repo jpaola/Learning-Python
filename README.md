@@ -27,6 +27,7 @@
         * [Types of Arguments](#types-of-arguments)
         * [Built-in Functions](#built-in-functions)
         * [Scope](#scope)
+        * [Return Values](#return-values)
 
 # Introduction
 
@@ -44,6 +45,9 @@ In Python, there are many different ways of classifying errors, but here are som
 3. TypeError: Errors thrown when an operation is applied to an object of an inappropriate type.
 
 ### Variables and naming convention
+A variable is used to store data that will be used by the program. This data can be a number, a string, a Boolean, a list or some other data type. Every variable has a name which can consist of letters, numbers, and the underscore character _.
+
+The equal sign `=` is used to assign a value to a variable. After the initial assignment is made, the value of a variable can be updated to new values as needed.
 
 A variable can have a short name (like x and y) or a more descriptive name (age, grade, grocery_list).
 
@@ -529,7 +533,9 @@ for i in big_number_list:
 ```
 
 ### Functions
-A function consists of many parts, so let’s first get familiar with its core - a function definition.
+A function consists of many parts, so let’s first get familiar with its core - a function definition. 
+
+**Note:** Function names in Python are written in snake_case.
 
 ```
 def function_name():
@@ -700,4 +706,56 @@ def outer_function():
 
 outer_function()
 # Output: 200
+```
+
+#### Return Values
+
+The `return` keyword is used to return a value from a Python function. The value returned from a function can be assigned to a variable which can then be used in the program.
+
+In the example below, the `check_leap_year()` function returns a string that indicates if the passed parameter is a leap year or not.
+
+```
+def check_leap_year(year):
+  if year % 4 == 0:
+    return str(year) + " is a leap year."
+  else:
+    return str(year) + " is not a leap year."
+
+year_to_check = 2018
+
+returned_value = check_leap_year(year_to_check)
+
+print(returned_value)
+
+# Output: 2018 is not a leap year.
+```
+
+Sometimes we may want to **return more than one value** from a function. We can return several values by separating them with a comma. Take a look at this example of a function that allows users in our travel application to check the upcoming week’s weather (starting on Monday):
+
+```
+weather_data = ['Sunny', 'Sunny', 'Cloudy', 'Raining', 'Snowing']
+
+def threeday_weather_report(weather):
+  first_day = " Tomorrow the weather will be " + weather[0]
+  second_day = " The following day it will be " + weather[1]
+  third_day = " Two days from now it will be " + weather[2]
+  return first_day, second_day, third_day
+```
+
+This function takes in a set of data in the form of a list for the upcoming week’s weather. We can get our returned function values by assigning them to variables when we call the function:
+
+```
+monday, tuesday, wednesday = threeday_weather_report(weather_data)
+
+print(monday)
+print(tuesday)
+print(wednesday)
+```
+
+This will print:
+
+```
+Tomorrow the weather will be Sunny
+The following day it will be Sunny
+Two days from now it will be Cloudy
 ```
