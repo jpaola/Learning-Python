@@ -1,5 +1,5 @@
 
-**Table of Contents**
+# Table of Contents
 
  * [Introduction](#introduction)
     * [Details](#details)
@@ -29,7 +29,7 @@
         * [Scope](#scope)
         * [Return Values](#return-values)
 
-# Introduction
+## Introduction
 
 A compilation of small projects/scripts following my journey with learning concepts of the Python programming language.
 
