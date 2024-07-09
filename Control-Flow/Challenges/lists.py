@@ -190,3 +190,4 @@ def middle_element(my_list):
 
 
 print(middle_element([5, 2, -10, -4, 4, 5]))
+# Should print -7.0
