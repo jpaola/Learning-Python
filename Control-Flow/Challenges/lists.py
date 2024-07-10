@@ -478,3 +478,110 @@ print(reversed_list([1, 2, 3], [3, 2, 1]))
 print(reversed_list([1, 5, 3], [3, 2, 1]))
 #  Should print True then False
 
+
+"""
+Tenth Power
+
+Write a function named tenth_power() that has one parameter named num. The function should return num raised to 
+the 10th power.
+"""
+
+
+def tenth_power(num):
+    return num ** 10
+
+
+print(tenth_power(1))
+# 1 to the 10th power is 1
+print(tenth_power(0))
+# 0 to the 10th power is 0
+print(tenth_power(2))
+# 2 to the 10th power is 1024
+
+
+"""
+Write a function named square_root() that has one parameter named num. 
+Use exponents (**) to return the square root of num.
+
+Remember to use def when defining the function. To take the square root of a value, you can use the power operator **. 
+The square root of a number is the same as taking the ½ power of the number. For example, the square root of 6 would 
+look like: 6 ** 0.5.
+"""
+
+
+def square_root(num):
+    return num ** 0.5
+
+
+print(square_root(16))
+# should print 4
+print(square_root(100))
+# should print 10
+
+
+"""
+Win Percentage
+
+Create a function called win_percentage() that takes two parameters named wins and losses.
+This function should return out the total percentage of games won by a team based on these two numbers.
+
+In order to calculate the ratio of wins out of total games we can use wins / (wins + losses) where wins + losses is 
+equal to the total number of games. To convert that value to a percentage, multiply it by 100.
+"""
+
+
+def win_percentage(wins, losses):
+    total_games = wins + losses
+    ratio_won = wins / total_games
+    return ratio_won * 100
+
+
+print(win_percentage(5, 5))
+# should print 50
+print(win_percentage(10, 0))
+# should print 100
+
+
+"""
+Average
+
+Write a function named average() that has two parameters named num1 and num2. The function should return the average 
+of these two numbers.
+
+To calculate the average of two numbers we add the first and second number, then divide the result by 2: 
+(first + second) / 2
+"""
+
+
+def average(num1, num2):
+    return (num1 + num2) / 2
+
+
+print(average(1, 100))
+# The average of 1 and 100 is 50.5
+print(average(1, -1))
+# The average of 1 and -1 is 0
+
+
+"""
+Remainder
+
+Write a function named remainder() that has two parameters named num1 and num2.
+The function should return the remainder of twice num1 divided by half of num2.
+
+In order to calculate the remainder of two numbers, we can use the modulus operator %. For example, the remainder of 5 
+divided by 2 is equal to 1 and we can get this result using 5 % 2.
+"""
+
+
+def remainder(num1, num2):
+    return (2 * num1) % (num2 / 2)
+
+
+print(remainder(15, 14))
+# should print 2
+print(remainder(9, 6))
+# should print 0
+
+
+
