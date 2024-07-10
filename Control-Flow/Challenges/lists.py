@@ -420,3 +420,61 @@ def max_num(nums):
 
 print(max_num([50, -10, 0, 75, 20]))
 # Should print 75
+
+
+"""
+Same Values
+
+Write a function named same_values() that takes two lists of numbers of equal size as parameters.
+The function should return a list of the indices where the values were equal in lst1 and lst2.
+
+For example, the following code should return [0, 2, 3]
+
+same_values([5, 1, -10, 3, 3], [5, 10, -10, 3, 5])
+
+Loop through all of the indices of each list using for index in range(len(lst1)) and compare lst1[index] to lst2[index]. 
+Append index to a new list if those two items are equal.
+"""
+
+
+def same_values(lst1, lst2):
+    result = []
+
+    for index in range(len(lst1)):
+        if lst1[index] == lst2[index]:
+            result.append(index)
+
+    return result
+
+
+print(same_values([5, 1, -10, 3, 3], [5, 10, -10, 3, 5]))
+#  Should print [0, 2, 3]
+
+
+"""
+Reversed List
+
+Create a function named reversed_list() that takes two lists of the same size as parameters named lst1 and lst2.
+The function should return True if lst1 is the same as lst2 reversed. The function should return False otherwise.
+
+For example, reversed_list([1, 2, 3], [3, 2, 1]) should return True.
+
+Let's say the lists are of size 5. You want to compare lst1[0] with lst2[4], lst1[1] with lst2[3] and so on.
+Loop through the numbers created by range(len(lst1)) using a variable named index
+
+Compare lst1[index] to lst2[len(lst2) - 1 - index]. If those two items are not equal, return False. If you loop through 
+the entire list and you never return False, that means that every item was equal, and you should return True.
+"""
+
+
+def reversed_list(lst1, lst2):
+    for index in range(len(lst1)):
+        if lst1[index] != lst2[len(lst2) - 1 - index]:
+            return False
+    return True
+
+
+print(reversed_list([1, 2, 3], [3, 2, 1]))
+print(reversed_list([1, 5, 3], [3, 2, 1]))
+#  Should print True then False
+
