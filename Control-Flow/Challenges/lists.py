@@ -584,4 +584,129 @@ print(remainder(9, 6))
 # should print 0
 
 
+"""
+First Three Multiples
 
+Write a function named first_three_multiples() that has one parameter named num.
+This function should print the first three multiples of num. Then, it should return the third multiple.
+
+For example, first_three_multiples(7) should print 7, 14, and 21 on three different lines, and return 21.
+
+For this function, we need to print() out the results of each multiplication * then return a single value. For example, 
+printing the result of 3 times 5 would look like print(3 * 5) and returning it would look like return 3 * 5.
+"""
+
+
+def first_three_multiples(num):
+    print(num)
+    print(2 * num)
+    print(3 * num)
+    return 3 * num
+
+
+first_three_multiples(10)
+# should print 10, 20, 30, and return 30
+first_three_multiples(0)
+# should print 0, 0, 0, and return 0
+
+
+"""
+Tip
+
+Create a function called tip() that has two parameters named total and percentage.
+This function should return the amount you should tip given a total and the percentage you want to tip.
+
+Calculating the tip value will look something like this: (total * percentage) / 100
+"""
+
+
+def tip(total, percentage):
+    return (total * percentage) / 100
+
+
+print(tip(10, 25))
+# should print 2.5
+print(tip(0, 100))
+# should print 0.0
+
+
+"""
+Bond, James Bond
+
+Write a function named introduction() that has two parameters named first_name and last_name.
+The function should return the last_name, followed by a comma, a space, first_name another space, and finally last_name.
+
+In order to concatenate strings in python, we can use the + operator. For example, if we wanted to create the string 
+'Hello, how are you?' from multiple strings, we could do: 'Hello' + ', ' + 'how are you?'
+"""
+
+
+def introduction(first_name, last_name):
+    return last_name + ", " + first_name + " " + last_name
+
+
+print(introduction("James", "Bond"))
+# should print Bond, James Bond
+print(introduction("Maya", "Angelou"))
+# should print Angelou, Maya Angelou
+
+
+"""
+Dog Years
+
+Some say that every one year of a human’s life is equivalent to seven years of a dog’s life. Write a function named 
+dog_years() that has two parameters named name and age.
+
+The function should compute the age in dog years and return the following string:
+
+"{name}, you are {age} years old in dog years"
+
+Test this function with your name and your age!
+
+Since the age in dog years age * 7 is a number, we need to convert it to a string when concatenating using str(). 
+For example: 'The age is: '+ str(age * 7).
+"""
+
+
+def dog_years(name, age):
+    age_to_dog_years = age * 7
+    return name + ", you are " + str(age_to_dog_years) + " years old in dog years"
+
+
+print(dog_years("Lola", 16))
+# should print "Lola, you are 112 years old in dog years"
+print(dog_years("Baby", 0))
+# should print "Baby, you are 0 years old in dog years"
+
+
+"""
+All Operations
+
+
+Create a function named lots_of_math(). This function should have four parameters named a, b, c, and d. The function should print 3 lines and return 1 value.
+
+- First, print the sum of a and b.
+- Second, print c minus d.
+- Third, print the first number printed, multiplied by the second number printed.
+- Finally, return the third number printed modulo a.
+
+To make this problem easier, you can store the result of each mathematical operation into a variable and use them as the 
+results in step 4. For example: first_result = a + b. Also, remember that you can take the modulo of a number with %.
+"""
+
+
+def lots_of_math(a, b, c, d):
+    first = a + b
+    second = c - d
+    third = first * second
+    fourth = third % a
+    print(first)
+    print(second)
+    print(third)
+    return fourth
+
+
+print(lots_of_math(1, 2, 3, 4))
+# should print 3, -1, -3, 0
+print(lots_of_math(1, 1, 1, 1))
+# should print 2, 0, 0, 0
