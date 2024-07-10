@@ -88,8 +88,8 @@ The function should combine these two lists into one new list and sort the resul
 
 def combine_sort(my_list1, my_list2):
     unsorted = my_list1 + my_list2
-    sortedList = sorted(unsorted)
-    return sortedList
+    sorted_list = sorted(unsorted)
+    return sorted_list
 
 
 # or return sorted(my_list1 + my_list2) but the previous is more legible
@@ -145,12 +145,12 @@ occurrences of an item in our list using my_list.count(item1).
 
 
 def more_frequent_item(my_list, item1, item2):
-    item1_occurence = my_list.count(item1)
-    item2_occurence = my_list.count(item2)
+    item1_occurrence = my_list.count(item1)
+    item2_occurrence = my_list.count(item2)
 
-    if (item1_occurence > item2_occurence):
+    if item1_occurrence > item2_occurrence:
         return item1
-    elif (item2_occurence > item1_occurence):
+    elif item2_occurrence > item1_occurrence:
         return item2
     else:
         return item1
@@ -280,7 +280,7 @@ element of the list using my_list = my_list[1:].
 
 
 def delete_starting_evens(my_list):
-    while (len(my_list) > 0 and my_list[0] % 2 == 0):
+    while len(my_list) > 0 and my_list[0] % 2 == 0:
         my_list = my_list[1:]
     return my_list
 
@@ -389,7 +389,7 @@ greater than 9000. Return sum after the loop.
 def over_nine_thousand(lst):
     sum = 0
     for number in lst:
-        if (sum > 9000):
+        if sum > 9000:
             break
         sum += number
     return sum
@@ -413,7 +413,7 @@ the max number should be re-set to that number.
 def max_num(nums):
     maximum = nums[0]
     for num in nums:
-        if (num > maximum):
+        if num > maximum:
             maximum = num
     return maximum
 

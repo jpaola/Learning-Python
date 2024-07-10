@@ -8,7 +8,7 @@ return False.
 
 
 def in_range(num, lower, upper):
-    if (num >= lower and num <= upper):
+    if num >= lower and num <= upper:
         return True
     return False
 
@@ -28,7 +28,7 @@ If our names are identical, return True. Otherwise, return False.
 
 
 def same_name(your_name, my_name):
-    if (your_name == my_name):
+    if your_name == my_name:
         return True
     else:
         return False
@@ -51,7 +51,7 @@ but it is important to realize it is possible to do this.
 
 
 def always_false(num):
-    if (num > 0 and num < 0):
+    if num > 0 and num < 0:
         return True
     return False
 
@@ -73,9 +73,9 @@ fun.". If rating is 9 or above, return "Outstanding!"
 
 
 def movie_review(rating):
-    if (rating <= 5):
+    if rating <= 5:
         return "Avoid at all costs!"
-    if (rating < 9):
+    if rating < 9:
         return "This one was fun!"
     return "Outstanding!"
 
