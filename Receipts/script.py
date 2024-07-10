@@ -13,7 +13,6 @@ luxurious_lamp_price = 52.15
 # Taxes
 sales_tax = 0.088
 
-
 # Customer purchase total
 customer_one_total = 0
 customer_one_itemization = ""
@@ -21,7 +20,6 @@ customer_one_total += lovely_loveseat_price
 customer_one_itemization += lovely_loveseat_description
 customer_one_total += luxurious_lamp_price
 customer_one_itemization += " , " + luxurious_lamp_description
-
 
 customer_one_tax = customer_one_total * sales_tax
 customer_one_total += customer_one_tax
