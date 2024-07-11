@@ -40,6 +40,11 @@
         * [Return Values](#return-values)
     * [Strings](#strings)
       * [Accessing the Characters of a String](#accessing-the-characters-of-a-string)
+      * [Iterate String](#iterate-string)
+      * [The `in` Syntax](#the-in-syntax)
+      * [String Concatenation](#string-concatenation)
+      * [Immutable String](#immutable-strings)
+      * [IndexError](#indexerror)
       * [Multi-Line Strings](#multi-line-strings)
       * [Escape Characters](#escape-characters)
       * [Modifying Strings](#modifying-strings)
@@ -1100,8 +1105,9 @@ message2 = 'I am also a string'
 
 #### Accessing the Characters of a String
 
-Strings in Python are technically a type of `list` — one in which each character is a separate element. This means each
-character in a string can be individually accessed by index, like with the elements in a list:
+Python strings can be indexed using the same notation as lists, since strings are lists of characters. 
+A single character can be accessed with bracket notation ([index]), or a substring can be accessed using slicing 
+([start:end]). Indexing with negative numbers counts from the end of the string.
 
 ```commandline
 myString = "Hello, World!"
@@ -1113,13 +1119,66 @@ var_3 = myString[1:4]
 print("var_1: " + var_1) # Output: var_1: H
 print("var_2: " + var_2) # Output: var_2: World!
 print("var_3: " + var_3) # Output: var_3: ell
+
+str = 'yellow'
+str[1]     # => 'e'
+str[-1]    # => 'w'
+str[4:6]   # => 'ow'
+str[:4]    # => 'yell'
+str[-3:]   # => 'low'
 ```
 
-If an attempt is made to access an index out of bounds, it will return an `IndexError`.
+#### Iterate String
+To iterate through a string in Python, `“for…in”` notation is used.
 
 ```commandline
-name = "phillis"
-name[8] # Throws an IndexError
+str = "hello"
+for c in str:
+  print(c)
+  
+# h
+# e
+# l
+# l
+# o
+```
+
+#### The `in` Syntax
+The `in` syntax is used to determine if a letter or a substring exists in a string. It returns `True` if a match is found, 
+otherwise `False` is returned.
+
+```commandline
+game = "Popular Nintendo Game: Mario Kart"
+
+print("l" in game) # Prints: True
+print("x" in game) # Prints: False
+```
+
+#### String Concatenation
+To combine the content of two strings into a single string, Python provides the `+` operator. This process of joining 
+strings is called concatenation.
+
+```commandline
+x = 'One fish, '
+y = 'two fish.'
+
+z = x + y
+
+print(z)
+# Output: One fish, two fish.
+```
+
+#### Immutable Strings
+Strings are immutable in Python. This means that once a string has been defined, it can’t be changed. There are no 
+mutating methods for strings. This is unlike data types like lists, which can be modified once they are created.
+
+#### IndexError
+When indexing into a string in Python, if you try to access an index that does not exist, an `IndexError` is generated. 
+For example, the following code would create an `IndexError`:
+
+```commandline
+fruit = "Berry"
+indx = fruit[6] # Throws an IndexError
 ```
 
 #### Multi-Line Strings
