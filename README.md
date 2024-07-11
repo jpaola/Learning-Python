@@ -38,6 +38,13 @@
         * [Built-in Functions](#built-in-functions)
         * [Scope](#scope)
         * [Return Values](#return-values)
+    * [Strings](#strings)
+      * [Accessing the Characters of a String](#accessing-the-characters-of-a-string)
+      * [Multi-Line Strings](#multi-line-strings)
+      * [Escape Characters](#escape-characters)
+      * [Modifying Strings](#modifying-strings)
+      * [Formatting Strings](#formatting-strings)
+      * [Built-in String Methods](#built-in-string-methods)
 
 ## Introduction
 
