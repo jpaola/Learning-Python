@@ -39,17 +39,25 @@
         * [Scope](#scope)
         * [Return Values](#return-values)
     * [Strings](#strings)
-      * [Accessing the Characters of a String](#accessing-the-characters-of-a-string)
-      * [Iterate String](#iterate-string)
-      * [The `in` Syntax](#the-in-syntax)
-      * [String Concatenation](#string-concatenation)
-      * [Immutable String](#immutable-strings)
-      * [IndexError](#indexerror)
-      * [Multi-Line Strings](#multi-line-strings)
-      * [Escape Characters](#escape-characters)
-      * [Modifying Strings](#modifying-strings)
-      * [Formatting Strings](#formatting-strings)
-      * [Built-in String Methods](#built-in-string-methods)
+        * [Accessing the Characters of a String](#accessing-the-characters-of-a-string)
+        * [Iterate String](#iterate-string)
+        * [The `in` Syntax](#the-in-syntax)
+        * [String Concatenation](#string-concatenation)
+        * [Immutable String](#immutable-strings)
+        * [IndexError](#indexerror)
+        * [Multi-Line Strings](#multi-line-strings)
+        * [Escape Characters](#escape-characters)
+        * [Modifying Strings](#modifying-strings)
+        * [Formatting Strings](#formatting-strings)
+        * [Built-in String Methods](#built-in-string-methods)
+          * [Splitting Strings](#splitting-strings)
+        * [Substrings](#substrings)
+            * [Retrieving Single Characters](#retrieving-single-characters)
+            * [Negative Start Index](#negative-start-index)
+            * [End Index](#end-index)
+            * [Negative Step Value](#negative-step-value)
+            * [Keyword `in`](#keyword-in)
+            * [`.find()` Method](#find-method)
 
 ## Introduction
 
@@ -1105,8 +1113,8 @@ message2 = 'I am also a string'
 
 #### Accessing the Characters of a String
 
-Python strings can be indexed using the same notation as lists, since strings are lists of characters. 
-A single character can be accessed with bracket notation ([index]), or a substring can be accessed using slicing 
+Python strings can be indexed using the same notation as lists, since strings are lists of characters.
+A single character can be accessed with bracket notation ([index]), or a substring can be accessed using slicing
 ([start:end]). Indexing with negative numbers counts from the end of the string.
 
 ```commandline
@@ -1129,6 +1137,7 @@ str[-3:]   # => 'low'
 ```
 
 #### Iterate String
+
 To iterate through a string in Python, `“for…in”` notation is used.
 
 ```commandline
@@ -1144,7 +1153,9 @@ for c in str:
 ```
 
 #### The `in` Syntax
-The `in` syntax is used to determine if a letter or a substring exists in a string. It returns `True` if a match is found, 
+
+The `in` syntax is used to determine if a letter or a substring exists in a string. It returns `True` if a match is
+found,
 otherwise `False` is returned.
 
 ```commandline
@@ -1155,7 +1166,8 @@ print("x" in game) # Prints: False
 ```
 
 #### String Concatenation
-To combine the content of two strings into a single string, Python provides the `+` operator. This process of joining 
+
+To combine the content of two strings into a single string, Python provides the `+` operator. This process of joining
 strings is called concatenation.
 
 ```commandline
@@ -1169,11 +1181,13 @@ print(z)
 ```
 
 #### Immutable Strings
-Strings are immutable in Python. This means that once a string has been defined, it can’t be changed. There are no 
+
+Strings are immutable in Python. This means that once a string has been defined, it can’t be changed. There are no
 mutating methods for strings. This is unlike data types like lists, which can be modified once they are created.
 
 #### IndexError
-When indexing into a string in Python, if you try to access an index that does not exist, an `IndexError` is generated. 
+
+When indexing into a string in Python, if you try to access an index that does not exist, an `IndexError` is generated.
 For example, the following code would create an `IndexError`:
 
 ```commandline
@@ -1350,3 +1364,158 @@ string methods are listed below.
   are not changed.
 - `zfill()` - Returns a string with zeros padding the left side based on the integer given.
 - `maketrans()` - Returns a transition table based on the given strings.
+
+##### Splitting Strings
+
+The string method `.split()` splits a string into a list of items:
+
+- If no argument is passed, the default behavior is to split on whitespace.
+- If an argument is passed to the method, that value is used as the delimiter on which to split the string.
+
+Example 1:
+General use of the `.split()` method on a string.
+```commandline
+text = "Silicon Valley"
+
+print(text.split())     
+# Prints: ['Silicon', 'Valley']
+
+print(text.split('i'))  
+# Prints: ['S', 'l', 'con Valley']
+```
+
+Example 2:
+Here we are looking to grab the list of author last names within a string containing author names.
+
+```commandline
+authors = "Audre Lorde,Gabriela Mistral,Jean Toomer,An Qi,Walt Whitman,Shel Silverstein,Carmen Boullosa,Kamala Suraiyya,
+Langston Hughes,Adrienne Rich,Nikki Giovanni"
+
+author_names = authors.split(",")
+
+print(author_names)
+
+# Output: ['Audre Lorde', 'Gabriela Mistral', 'Jean Toomer', 'An Qi', 'Walt Whitman', 'Shel Silverstein', 
+'Carmen Boullosa', 'Kamala Suraiyya', 'Langston Hughes', 'Adrienne Rich', 'Nikki Giovanni']
+
+##########################
+
+author_last_names = []
+
+for name in author_names:
+  author_last_names.append(name.split()[-1])
+
+print(author_last_names)
+
+# Output: ['Lorde', 'Mistral', 'Toomer', 'Qi', 'Whitman', 'Silverstein', 'Boullosa', 'Suraiyya', 'Hughes', 'Rich', 
+'Giovanni']
+```
+
+Note here that when using `name.split()` the behavior is to split on whitespace so the return value will be a lists of each author's surnames. When
+specifying `[-1]` we are specifying that we only want the last element on the list. In this case the last name of each
+author.
+
+Here's what the `name.split()` within the previous code looks like:
+
+```commandline
+['Audre', 'Lorde']
+['Gabriela', 'Mistral']
+['Jean', 'Toomer']
+['An', 'Qi']
+['Walt', 'Whitman']
+['Shel', 'Silverstein']
+['Carmen', 'Boullosa']
+['Kamala', 'Suraiyya']
+['Langston', 'Hughes']
+['Adrienne', 'Rich']
+['Nikki', 'Giovanni']
+```
+
+
+#### Substrings
+
+A substring is a sequence of characters that are part of an original `string`. In Python, substrings can be obtained by
+using the slicing feature on a string variable. A slice can be made in a specific position within the string or it can
+be made at the default index.
+
+A slice is made by using the open `[` and closed `]` square brackets next to a string variable. Inside the brackets, the
+position can be given:
+
+`string[start:end:step]`
+
+- `start` defaults to 0 and gives the initial position the slice will start from.
+- `end` defaults to -1 and is the position where the slicing will end.
+- `step` defaults to 1 and indicates the number of steps to take in between indexes.
+
+##### Retrieving Single Characters
+
+The following examples show different ways of obtaining substrings from an original string `name`. When only one index
+is specified, a single character is returned. An index of `0` retrieves the first character of the string. Negative
+numbers work on the string backwards. For example, index `-1` retrieves the last character of the string.
+
+```commandline
+name = "Code Ninja"
+print(name[0])
+
+# Output: C
+
+##################
+
+print(name[-1])
+
+# Output: a
+```
+
+##### Negative Start Index
+
+Using a negative start index `(-n)` with the default end value accesses the last `n` characters of the string. The
+following
+gives access to the last three characters of the string:
+
+```commandline
+print(name[-3:])
+
+# Output: nja
+```
+
+##### End Index
+
+To specify only an end index, use `[:n]`, where n is the ending position. This will return the first `n` characters.
+
+```
+print(name[:4])
+
+# Output: Code
+```
+
+##### Negative Step Value
+
+Given a negative step value, returns the results backward:
+
+```commandline
+reversed = name[::-2]
+print(reversed)
+
+# Output: anNeo
+```
+
+##### Keyword `in`
+
+The `in` keyword can be used to check for a specific substring, like in the example below:
+
+```
+print('de' in name)
+
+# Output: True
+```
+
+##### `.find()` Method
+
+The string method `.find()` can also be used to find a subset. It returns the index of the first occurrence of the
+substring. If the substring is not found, it returns `-1`.
+
+```commandline
+name = "Code Ninja"
+print(name.find('ni'))
+```
+
