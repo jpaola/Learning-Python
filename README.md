@@ -51,6 +51,7 @@
         * [Formatting Strings](#formatting-strings)
         * [Built-in String Methods](#built-in-string-methods)
           * [Splitting Strings](#splitting-strings)
+          * [Joining Strings](#joining-strings)
         * [Substrings](#substrings)
             * [Retrieving Single Characters](#retrieving-single-characters)
             * [Negative Start Index](#negative-start-index)
@@ -1431,6 +1432,18 @@ Here's what the `name.split()` within the previous code looks like:
 ['Nikki', 'Giovanni']
 ```
 
+##### Joining Strings
+The string method `.join()` concatenates a list of strings together to create a new string joined with the desired delimiter.
+The `.join()` method is run on the delimiter and the array of strings to be concatenated together is passed in as an argument.
+
+```commandline
+my_munequita = ['My', 'Spanish', 'Harlem', 'Mona', 'Lisa']
+print(' '.join(my_munequita))
+# => 'My Spanish Harlem Mona Lisa'
+
+print(''.join(my_munequita))
+# => 'MySpanishHarlemMonaLisa'
+```
 
 #### Substrings
 
