@@ -50,8 +50,10 @@
         * [Modifying Strings](#modifying-strings)
         * [Formatting Strings](#formatting-strings)
         * [Built-in String Methods](#built-in-string-methods)
-          * [Splitting Strings](#splitting-strings)
-          * [Joining Strings](#joining-strings)
+            * [Splitting Strings](#splitting-strings)
+            * [Joining Strings](#joining-strings)
+            * [Stripping Strings](#stripping-strings)
+            * [Replacing Strings](#replacing-strings)
         * [Substrings](#substrings)
             * [Retrieving Single Characters](#retrieving-single-characters)
             * [Negative Start Index](#negative-start-index)
@@ -1375,6 +1377,7 @@ The string method `.split()` splits a string into a list of items:
 
 Example 1:
 General use of the `.split()` method on a string.
+
 ```commandline
 text = "Silicon Valley"
 
@@ -1412,7 +1415,8 @@ print(author_last_names)
 'Giovanni']
 ```
 
-Note here that when using `name.split()` the behavior is to split on whitespace so the return value will be a lists of each author's surnames. When
+Note here that when using `name.split()` the behavior is to split on whitespace so the return value will be a lists of
+each author's surnames. When
 specifying `[-1]` we are specifying that we only want the last element on the list. In this case the last name of each
 author.
 
@@ -1433,8 +1437,11 @@ Here's what the `name.split()` within the previous code looks like:
 ```
 
 ##### Joining Strings
-The string method `.join()` concatenates a list of strings together to create a new string joined with the desired delimiter.
-The `.join()` method is run on the delimiter and the array of strings to be concatenated together is passed in as an argument.
+
+The string method `.join()` concatenates a list of strings together to create a new string joined with the desired
+delimiter. The `.join()` method is run on the delimiter and the array of strings to be concatenated together is passed
+in as an
+argument.
 
 ```commandline
 my_munequita = ['My', 'Spanish', 'Harlem', 'Mona', 'Lisa']
@@ -1443,6 +1450,55 @@ print(' '.join(my_munequita))
 
 print(''.join(my_munequita))
 # => 'MySpanishHarlemMonaLisa'
+```
+
+##### Stripping Strings
+
+The string method `.strip()` can be used to remove characters from the beginning and end of a string.
+
+A string argument can be passed to the method, specifying the set of characters to be stripped. With no arguments to the
+method, whitespace is removed.
+
+```
+text1 = '   apples and oranges   '
+text1.strip()       # => 'apples and oranges'
+
+text2 = '...+...lemons and limes...-...'
+
+# Here we strip just the "." characters
+text2.strip('.')    # => '+...lemons and limes...-'
+
+# Here we strip both "." and "+" characters
+text2.strip('.+')   # => 'lemons and limes...-'
+
+# Here we strip ".", "+", and "-" characters
+text2.strip('.+-')  # => 'lemons and limes'
+```
+
+##### Replacing Strings
+
+Replace a specific substring with another substring.
+
+```commandline
+string.replace(old, new, count)
+```
+
+The `.replace()` string method takes in three parameters:
+
+- `old`: The substring to search for. (Required)
+- `new`: The substring to replace. (Required)
+- `count`: A number specifying how many occurrences of the old value to replace. Default is all occurrences.
+
+```commandline
+var = "I like cats and cats like me"
+var = var.replace("like", "LOVE")
+print(var)
+# Output: "I LOVE cats and cats LOVE me"
+
+var = "I like cats and cats like me"
+var = var.replace("like", "LOVE", 1)
+print(var)
+# Output "I LOVE cats and cats like me"
 ```
 
 #### Substrings
