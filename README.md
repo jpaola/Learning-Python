@@ -54,6 +54,8 @@
             * [Joining Strings](#joining-strings)
             * [Stripping Strings](#stripping-strings)
             * [Replacing Strings](#replacing-strings)
+            * [Finding Strings](#finding-strings)
+            * [Formatting Strings Using `.format()](#formatting-strings-using-format)
         * [Substrings](#substrings)
             * [Retrieving Single Characters](#retrieving-single-characters)
             * [Negative Start Index](#negative-start-index)
@@ -1499,6 +1501,33 @@ var = "I like cats and cats like me"
 var = var.replace("like", "LOVE", 1)
 print(var)
 # Output "I LOVE cats and cats like me"
+```
+
+##### Finding Strings
+
+The Python string method `.find()` returns the index of the first occurrence of the string passed as the argument. It
+returns `-1` if no occurrence is found.
+
+```commandline
+mountain_name = "Mount Kilimanjaro"
+print(mountain_name.find("o")) # Prints 1 in the console.
+```
+
+##### Formatting Strings using `.format()`
+
+The Python string method `.format()` replaces empty brace (`{}`) placeholders in the string with its arguments.
+
+If keywords are specified within the placeholders, they are replaced with the corresponding named arguments to the
+method.
+
+```commandline
+msg1 = 'Fred scored {} out of {} points.'
+msg1.format(3, 10)
+# => 'Fred scored 3 out of 10 points.'
+
+msg2 = 'Fred {verb} a {adjective} {noun}.'
+msg2.format(adjective='fluffy', verb='tickled', noun='hamster')
+# => 'Fred tickled a fluffy hamster.'
 ```
 
 #### Substrings
