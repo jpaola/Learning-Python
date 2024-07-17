@@ -1522,6 +1522,7 @@ method.
 
 Example 1:
 General usage of `.format()`
+
 ```commandline
 msg1 = 'Fred scored {} out of {} points.'
 msg1.format(3, 10)
