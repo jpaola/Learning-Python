@@ -387,5 +387,4 @@ Thread Shed sold 28 threads of white thread today.
 Thread Shed sold 26 threads of black thread today.
 Thread Shed sold 22 threads of blue thread today.
 Thread Shed sold 17 threads of purple thread today.
-
 """
