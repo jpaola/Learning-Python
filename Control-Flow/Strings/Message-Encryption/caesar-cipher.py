@@ -74,10 +74,10 @@ Second message:
 """
 
 
-def caesar_decode(offset, hidden_message):
+def caesar_decode(offset, encrypted_message):
     decoded_message = ""
 
-    for char in hidden_message:
+    for char in encrypted_message:
         if char in alphabet:
             char_index = alphabet.find(char)
             decoded_message += alphabet[(char_index + offset) % 26]
@@ -93,10 +93,10 @@ second_message = caesar_decode(14, "bqdradyuzs ygxfubxq omqemd oubtqde fa oapq k
 print(second_message)  # Response is "performing multiple caesar ciphers to code your messages is even more secure!"
 
 
-def caesar_encode(offset, hidden_message):
+def caesar_encode(offset, encrypted_message):
     encoded_message = ""
 
-    for char in hidden_message:
+    for char in encrypted_message:
         if char in alphabet:
             char_index = alphabet.find(char)
             encoded_message += alphabet[(char_index - offset) % 26]
