@@ -1,80 +1,72 @@
-# Table of Contents
+# Index
 
 * [Introduction](#introduction)
-    * [Details](#details)
-* [Notes](#notes)
-    * [Common Errors](#common-errors)
-    * [Variables](#variables-and-naming-convention)
-    * [Control Flow](#control-flow)
-        * [`elif` Statement](#elif-statement)
-        * [`or` Operator](#or-operator)
-        * [Equal Operator `==`](#equal-operator)
-        * [Not Equals Operator `!=`](#not-equals-operator)
-        * [Comparison Operators](#comparison-operators)
-        * [`if` Statement](#if-statement)
-        * [`else` Statement](#else-statement)
-        * [`and` Statement](#and-statement)
-        * [Boolean Values](#boolean-values)
-        * [`not` Operator](#not-operator)
-    * [Lists](#lists)
-        * [Range](#range)
-        * [Slicing Lists I](#slicing-lists-i)
-        * [Slicing Lists II](#slicing-lists-ii)
-        * [Sorting I](#sorting-i)
-        * [Sorting II](#sorting-ii)
-    * [Tuples](#tuples)
-        * [Combining Lists](#combining-lists)
-    * [Data Types](#data-types)
-    * [Loops](#Loops)
-        * [While Loops](#while-loops)
-        * [For Loops](#for-loops)
-            * [For Loops with Range](#for-loops-with-range)
-            * [List Comprehension](#list-comprehension)
-        * [Nested Loops](#nested-loops)
-        * [Break Keyword](#break-keyword)
-        * [Continue Keyword](#continue-keyword)
-    * [Functions](#functions)
-        * [Types of Arguments](#types-of-arguments)
-        * [Built-in Functions](#built-in-functions)
-        * [Scope](#scope)
-        * [Return Values](#return-values)
-    * [Strings](#strings)
-        * [Accessing the Characters of a String](#accessing-the-characters-of-a-string)
-        * [Iterate String](#iterate-string)
-        * [The `in` Syntax](#the-in-syntax)
-        * [String Concatenation](#string-concatenation)
-        * [Immutable String](#immutable-strings)
-        * [IndexError](#indexerror)
-        * [Multi-Line Strings](#multi-line-strings)
-        * [Escape Characters](#escape-characters)
-        * [Modifying Strings](#modifying-strings)
-        * [Formatting Strings](#formatting-strings)
-        * [Built-in String Methods](#built-in-string-methods)
-            * [Splitting Strings](#splitting-strings)
-            * [Joining Strings](#joining-strings)
-            * [Stripping Strings](#stripping-strings)
-            * [Replacing Strings](#replacing-strings)
-            * [Finding Strings](#finding-strings)
-            * [Formatting Strings Using `.format()](#formatting-strings-using-format)
-        * [Substrings](#substrings)
-            * [Retrieving Single Characters](#retrieving-single-characters)
-            * [Negative Start Index](#negative-start-index)
-            * [End Index](#end-index)
-            * [Negative Step Value](#negative-step-value)
-            * [Keyword `in`](#keyword-in)
-            * [`.find()` Method](#find-method)
+* [Common Errors](#common-errors)
+* [Variables](#variables-and-naming-convention)
+* [Control Flow](#control-flow)
+    * [`elif` Statement](#elif-statement)
+    * [`or` Operator](#or-operator)
+    * [Equal Operator `==`](#equal-operator)
+    * [Not Equals Operator `!=`](#not-equals-operator)
+    * [Comparison Operators](#comparison-operators)
+    * [`if` Statement](#if-statement)
+    * [`else` Statement](#else-statement)
+    * [`and` Statement](#and-statement)
+    * [Boolean Values](#boolean-values)
+    * [`not` Operator](#not-operator)
+* [Lists](#lists)
+    * [Range](#range)
+    * [Slicing Lists I](#slicing-lists-i)
+    * [Slicing Lists II](#slicing-lists-ii)
+    * [Sorting I](#sorting-i)
+    * [Sorting II](#sorting-ii)
+* [Tuples](#tuples)
+    * [Combining Lists](#combining-lists)
+* [Data Types](#data-types)
+* [Loops](#Loops)
+    * [While Loops](#while-loops)
+    * [For Loops](#for-loops)
+        * [For Loops with Range](#for-loops-with-range)
+        * [List Comprehension](#list-comprehension)
+    * [Nested Loops](#nested-loops)
+    * [Break Keyword](#break-keyword)
+    * [Continue Keyword](#continue-keyword)
+* [Functions](#functions)
+    * [Types of Arguments](#types-of-arguments)
+    * [Built-in Functions](#built-in-functions)
+    * [Scope](#scope)
+    * [Return Values](#return-values)
+* [Strings](#strings)
+    * [Accessing the Characters of a String](#accessing-the-characters-of-a-string)
+    * [Iterate String](#iterate-string)
+    * [The `in` Syntax](#the-in-syntax)
+    * [String Concatenation](#string-concatenation)
+    * [Immutable String](#immutable-strings)
+    * [IndexError](#indexerror)
+    * [Multi-Line Strings](#multi-line-strings)
+    * [Escape Characters](#escape-characters)
+    * [Modifying Strings](#modifying-strings)
+    * [Formatting Strings](#formatting-strings)
+    * [Built-in String Methods](#built-in-string-methods)
+        * [Splitting Strings](#splitting-strings)
+        * [Joining Strings](#joining-strings)
+        * [Stripping Strings](#stripping-strings)
+        * [Replacing Strings](#replacing-strings)
+        * [Finding Strings](#finding-strings)
+        * [Formatting Strings Using `.format()](#formatting-strings-using-format)
+    * [Substrings](#substrings)
+        * [Retrieving Single Characters](#retrieving-single-characters)
+        * [Negative Start Index](#negative-start-index)
+        * [End Index](#end-index)
+        * [Negative Step Value](#negative-step-value)
+        * [Keyword `in`](#keyword-in)
+        * [`.find()` Method](#find-method)
 
 ## Introduction
 
 A compilation of small projects/scripts following my journey with learning concepts of the Python programming language.
 
-### Details
-
-Each sub-folder holds a `README.md` file with details for that project/script, packages necessary and execution details.
-
-## Notes
-
-### Common Errors
+## Common Errors
 
 In Python, there are many different ways of classifying errors, but here are some common ones:
 
@@ -93,7 +85,7 @@ In Python, there are many different ways of classifying errors, but here are som
 2. NameError: Errors reported when the interpreter detects a variable that is unknown.
 3. TypeError: Errors thrown when an operation is applied to an object of an inappropriate type.
 
-### Variables and naming convention
+## Variables and naming convention
 
 A variable is used to store data that will be used by the program. This data can be a number, a string, a Boolean, a
 list or some other data type. Every variable has a name which can consist of letters, numbers, and the underscore
@@ -110,9 +102,9 @@ Rules for Python variables:
 - A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _).
 - Variable names are case-sensitive (num, Num, and NUM are three different variables).
 
-### Control Flow
+## Control Flow
 
-#### `elif` Statement
+### `elif` Statement
 
 The Python `elif` statement allows for continued checks to be performed after an initial `if` statement. An `elif`
 statement differs from the `else` statement because another expression is provided to be checked, just as with the
@@ -138,7 +130,7 @@ else:
   print("Not sure!")
 ```
 
-#### `or` Operator
+### `or` Operator
 
 The Python `or` operator combines two Boolean expressions and evaluates to `True` if at least one of the expressions
 returns `True`. Otherwise, if both expressions are `False`, then the entire expression evaluates to `False`.
@@ -152,7 +144,7 @@ False or False    # Evaluates to False
 1 == 1 or 1 < 2   # Evaluates to True
 ```
 
-#### Equal Operator `==`
+### Equal Operator `==`
 
 The equal operator, `==`, is used to compare two values, variables or expressions to determine if they are the same.
 
@@ -181,7 +173,7 @@ else:
   print('They are not equal')
 ```
 
-#### Not Equals Operator `!=`
+### Not Equals Operator `!=`
 
 The Python not equals operator, `!=`, is used to compare two values, variables or expressions to determine if they are
 NOT the same. If they are NOT the same, the operator returns `True`. If they are the same, then it returns `False`.
@@ -208,7 +200,7 @@ if (10 > 1) != (10 > 1000):
   print("They are NOT equal")
 ```
 
-#### Comparison Operators
+### Comparison Operators
 
 In Python, *relational operators* compare two values or expressions. The most common ones are:
 
@@ -230,7 +222,7 @@ a <= b # evaluates to True
 a <= a # evaluates to True
 ```
 
-#### `if` Statement
+### `if` Statement
 
 The Python `if` statement is used to determine the execution of code based on the evaluation of a Boolean expression.
 
@@ -254,7 +246,7 @@ if test_value > 1000:
 print("Program continues at this point.")
 ```
 
-#### `else` Statement
+### `else` Statement
 
 The Python `else` statement provides alternate code to execute if the expression in an `if` statement evaluates
 to `False`.
@@ -281,7 +273,7 @@ else:
   print("String equals something else!")
 ```
 
-#### `and` Statement
+### `and` Statement
 
 The Python `and` operator performs a Boolean comparison between two Boolean values, variables, or expressions. If both
 sides of the operator evaluate to `True` then the `and` operator returns `True`. If either side (or both sides)
@@ -297,7 +289,7 @@ False and False   # Evaluates to False
 "Yes" and 100     # Evaluates to True
 ```
 
-#### Boolean Values
+### Boolean Values
 
 Booleans are a data type in Python, much like integers, floats, and strings. However, booleans only have two values:
 
@@ -315,7 +307,7 @@ print(type(is_true))
 # will output: <class 'bool'>
 ```
 
-#### `not` Operator
+### `not` Operator
 
 The Python Boolean `not` operator is used in a Boolean expression in order to evaluate the expression to its inverse
 value. If the original expression was `True`, including the `not` operator would make the expression `False`, and vice
@@ -330,7 +322,7 @@ not 1 > 2    # Evaluates to True
 not 1 == 1   # Evaluates to False
 ```
 
-### Lists
+## Lists
 
 A list in Python is a sequence data type used for storing a comma-separated collection of objects in a single variable.
 Lists are always ordered and can contain different types of objects (strings, integers, booleans, etc.). Since they are
@@ -366,7 +358,7 @@ Methods:
 - `.append()` - A list method to insert an element at the end of the list.
 - `.remove()` - A list method to remove the first instance of a specified element.
 
-#### Range
+### Range
 
 The `range()` function returns a sequence of numbers, starting from `0` by default, and increments by `1` (by default),
 and stops before a specified number.
@@ -387,7 +379,7 @@ print(list(x))
 # Output: [2, 6, 10]
 ```
 
-#### Slicing Lists I
+### Slicing Lists I
 
 In Python, often we want to extract only a portion of a list. Dividing a list in such a manner is referred to as
 slicing.
@@ -418,7 +410,7 @@ Would output:
 ["b", "c", "d", "e", "f"]
 ```
 
-#### Slicing Lists II
+### Slicing Lists II
 
 Slicing syntax in Python is very flexible.
 
@@ -489,7 +481,7 @@ Would output:
 ['apple', 'cherry', 'pineapple', 'orange']
 ```
 
-#### Sorting I
+### Sorting I
 
 Often, we will want to sort a list in either numerical (1, 2, 3, …) or alphabetical (a, b, c, …) order.
 
@@ -513,7 +505,7 @@ print(names)
 
 ```
 
-#### Sorting II
+### Sorting II
 
 A second way of sorting a list in Python is to use the built-in function `sorted()`.
 
@@ -540,7 +532,7 @@ print(names)
 # Output: ["Xander", "Buffy", "Angel", "Willow", "Giles"]
 ```
 
-### Tuples
+## Tuples
 
 Tuple is one of the built-in data types in Python. A Python tuple is a sequence of comma separated items, enclosed in
 parentheses (). The items in a Python tuple need not be of same data type. Like `Lists` a tuple is an ordered collection
@@ -598,7 +590,7 @@ print (tup);
 
 Note an exception raised, this is because after `del tup` tuple does not exist any more
 
-#### Combining Lists
+### Combining Lists
 
 In Python, we have an assortment of built-in functions that allow us to build our programs faster and cleaner. One of
 those functions is `zip()`.
@@ -643,7 +635,7 @@ Notice two things:
 2. Our inner lists don’t use square brackets `[ ]` around the values. This is because they have been converted
    into `tuples` (an immutable type of list).
 
-### Data Types
+## Data Types
 
 Python is a strongly typed language, in the sense that at runtime it prevents typing errors and it engages in little
 implicit type conversion or casting, i.e. converting one type to another without a specific call to a conversion
@@ -682,12 +674,12 @@ print(isinstance(languages, tuple)) # Output: True
 
 ```
 
-### Loops
+## Loops
 
 A loop is a control structure that can execute a statement or group of statements repeatedly. Python has three types of
 loops: while loops, for loops, and nested loops.
 
-#### While Loops
+### While Loops
 
 A while loop will repeatedly execute a code block as long as a condition evaluates to `True`.
 
@@ -709,7 +701,7 @@ while hungry:
   hungry = False
 ```
 
-#### For Loops
+### For Loops
 
 A for loop can be used to iterate over and perform an action one time for each element in a list.
 
@@ -745,7 +737,7 @@ Scrabble
 
 ```
 
-##### For Loops with Range
+### For Loops with Range
 
 In Python, a for loop can be used to perform an action a specific number of times in a row.
 
@@ -761,7 +753,7 @@ for i in range(3):
   print("WARNING")
 ```
 
-##### List Comprehension
+### List Comprehension
 
 Python list comprehensions provide a concise way for creating lists. It consists of brackets containing an expression
 followed by a for clause, then zero or more for or if clauses: `[EXPRESSION for ITEM in LIST <if CONDITIONAL>]`.
@@ -791,7 +783,7 @@ print(new_prices)
 # Output: [25, 20, 35, 15, 15, 30, 45, 30]
 ```
 
-#### Nested Loops
+### Nested Loops
 
 Loops can be nested inside other loops. Nested loops can be used to access items of lists which are inside other lists.
 The item selected from the outer loop can be used as the list for the inner loop to iterate over.
@@ -807,7 +799,7 @@ for group in groups:
 
 ```
 
-#### Break Keyword
+### Break Keyword
 
 In a loop, the break keyword escapes the loop, regardless of the iteration number. Once break executes, the program will
 continue to execute after the loop.
@@ -831,7 +823,7 @@ In this example, the output would be:
 Negative number detected!
 ```
 
-#### Continue Keyword
+### Continue Keyword
 
 The continue keyword is used inside a loop to skip the remaining code inside the loop code block and begin the next loop
 iteration.
@@ -846,7 +838,7 @@ for i in big_number_list:
   print(i)
 ```
 
-### Functions
+## Functions
 
 A function consists of many parts, so let’s first get familiar with its core - a function definition.
 
@@ -901,7 +893,7 @@ directions_to_timesSq()
 #   Get off the Times Square 42nd Street stop.
 ```
 
-#### Types of Arguments
+### Types of Arguments
 
 In Python, there are 3 different types of arguments we can give a function.
 
@@ -958,7 +950,7 @@ calculate_taxi_price(10, 0.5)
 calculate_taxi_price(10, 0.5, 20)
 ```
 
-#### Built-in Functions
+### Built-in Functions
 
 [Built-in functions](https://docs.python.org/3/library/functions.html) are functions that come built into Python ready
 for us to use. Some examples of built-in functions are `print()`, `len()` and `str()`.
@@ -1000,7 +992,7 @@ MODULE REFERENCE
     location listed above.
 ```
 
-#### Scope
+### Scope
 
 `Scope` refers to the areas where variables are visible and accessible. Variables that can be accessed anywhere in a
 Python program are in the global scope. Conversely, variables that are defined within the body of structures like
@@ -1048,7 +1040,7 @@ outer_function()
 # Output: 200
 ```
 
-#### Return Values
+### Return Values
 
 The `return` keyword is used to return a value from a Python function. The value returned from a function can be
 assigned to a variable which can then be used in the program.
@@ -1105,7 +1097,7 @@ The following day it will be Sunny
 Two days from now it will be Cloudy
 ```
 
-### Strings
+## Strings
 
 A string is a sequence of characters contained within a pair of single quotes `(')` or double quotes `(")`. Strings can
 store
@@ -1116,7 +1108,7 @@ message1 = "I am a string"
 message2 = 'I am also a string'
 ```
 
-#### Accessing the Characters of a String
+### Accessing the Characters of a String
 
 Python strings can be indexed using the same notation as lists, since strings are lists of characters.
 A single character can be accessed with bracket notation ([index]), or a substring can be accessed using slicing
@@ -1141,7 +1133,7 @@ str[:4]    # => 'yell'
 str[-3:]   # => 'low'
 ```
 
-#### Iterate String
+### Iterate String
 
 To iterate through a string in Python, `“for…in”` notation is used.
 
@@ -1157,7 +1149,7 @@ for c in str:
 # o
 ```
 
-#### The `in` Syntax
+### The `in` Syntax
 
 The `in` syntax is used to determine if a letter or a substring exists in a string. It returns `True` if a match is
 found,
@@ -1170,7 +1162,7 @@ print("l" in game) # Prints: True
 print("x" in game) # Prints: False
 ```
 
-#### String Concatenation
+### String Concatenation
 
 To combine the content of two strings into a single string, Python provides the `+` operator. This process of joining
 strings is called concatenation.
@@ -1185,12 +1177,12 @@ print(z)
 # Output: One fish, two fish.
 ```
 
-#### Immutable Strings
+### Immutable Strings
 
 Strings are immutable in Python. This means that once a string has been defined, it can’t be changed. There are no
 mutating methods for strings. This is unlike data types like lists, which can be modified once they are created.
 
-#### IndexError
+### IndexError
 
 When indexing into a string in Python, if you try to access an index that does not exist, an `IndexError` is generated.
 For example, the following code would create an `IndexError`:
@@ -1200,7 +1192,7 @@ fruit = "Berry"
 indx = fruit[6] # Throws an IndexError
 ```
 
-#### Multi-Line Strings
+### Multi-Line Strings
 
 Strings can be long or short. For longer text, a multi-line string can be used. Multi-line strings begin and end with
 three single or double quotes:
@@ -1214,7 +1206,7 @@ morning—the first day.
 """
 ```
 
-#### Escape Characters
+### Escape Characters
 
 Sometimes a string may have a character that Python tries to interpret, such as '. This will raise an error, because
 the interpreter thinks the second ' marks the end of the string.
@@ -1241,7 +1233,7 @@ my_string = 'It\'s a lovely day!'
 print(my_string)
 # Output: It's a lovely day!
 
-#################################
+#####
 
 my_string = "It's a lovely day!"
 
@@ -1266,7 +1258,7 @@ I am on bottom.
         I am indented!
 ```
 
-#### Modifying Strings
+### Modifying Strings
 
 Python has special operators to modify strings. For example, `+` can be used to concatenate strings, and `*` can be used
 to multiply a string. The keyword in can be used to see if a given character or substring exists in a string.
@@ -1294,7 +1286,7 @@ Strings can also be formatted with either of the following:
 * The `f/F` flag (placed before the opening quotation mark).
 * The `.format()` method (requires manually adding placeholders).
 
-#### Formatting Strings
+### Formatting Strings
 
 Python can use comparison operators to compare the contents of two strings. The operators behave as they do with
 numeric arguments:
@@ -1308,7 +1300,7 @@ numeric arguments:
 | `<=`	     |  Less than or equal to   |    	Returns True if the left string is equal to or lexically prior to the right string. |
 | `>=`	     | Greater than or equal to | 	Returns True if the left string is equal to or comes lexically after the right string. |
 
-#### Built-in String Methods
+### Built-in String Methods
 
 Python has a number of built-in string methods that manipulate strings. However, when these methods are called, the
 original string will not be changed, so any modifications will need to be saved to a new variable. A few useful built-in
@@ -1370,7 +1362,7 @@ string methods are listed below.
 - `zfill()` - Returns a string with zeros padding the left side based on the integer given.
 - `maketrans()` - Returns a transition table based on the given strings.
 
-##### Splitting Strings
+### Splitting Strings
 
 The string method `.split()` splits a string into a list of items:
 
@@ -1404,7 +1396,7 @@ print(author_names)
 # Output: ['Audre Lorde', 'Gabriela Mistral', 'Jean Toomer', 'An Qi', 'Walt Whitman', 'Shel Silverstein', 
 'Carmen Boullosa', 'Kamala Suraiyya', 'Langston Hughes', 'Adrienne Rich', 'Nikki Giovanni']
 
-##########################
+####
 
 author_last_names = []
 
@@ -1438,7 +1430,7 @@ Here's what the `name.split()` within the previous code looks like:
 ['Nikki', 'Giovanni']
 ```
 
-##### Joining Strings
+### Joining Strings
 
 The string method `.join()` concatenates a list of strings together to create a new string joined with the desired
 delimiter. The `.join()` method is run on the delimiter and the array of strings to be concatenated together is passed
@@ -1454,7 +1446,7 @@ print(''.join(my_munequita))
 # => 'MySpanishHarlemMonaLisa'
 ```
 
-##### Stripping Strings
+### Stripping Strings
 
 The string method `.strip()` can be used to remove characters from the beginning and end of a string.
 
@@ -1477,7 +1469,7 @@ text2.strip('.+')   # => 'lemons and limes...-'
 text2.strip('.+-')  # => 'lemons and limes'
 ```
 
-##### Replacing Strings
+### Replacing Strings
 
 Replace a specific substring with another substring.
 
@@ -1503,7 +1495,7 @@ print(var)
 # Output "I LOVE cats and cats like me"
 ```
 
-##### Finding Strings
+### Finding Strings
 
 The Python string method `.find()` returns the index of the first occurrence of the string passed as the argument. It
 returns `-1` if no occurrence is found.
@@ -1513,7 +1505,7 @@ mountain_name = "Mount Kilimanjaro"
 print(mountain_name.find("o")) # Prints 1 in the console.
 ```
 
-##### Formatting Strings using `.format()`
+### Formatting Strings using `.format()`
 
 The Python string method `.format()` replaces empty brace (`{}`) placeholders in the string with its arguments.
 
@@ -1577,7 +1569,7 @@ The poem Dream Variations was published by Langston Hughes in 1994
 The poem Dreamwood was published by Adrienne Rich in 1987
 ```
 
-#### Substrings
+### Substrings
 
 A substring is a sequence of characters that are part of an original `string`. In Python, substrings can be obtained by
 using the slicing feature on a string variable. A slice can be made in a specific position within the string or it can
@@ -1592,7 +1584,7 @@ position can be given:
 - `end` defaults to -1 and is the position where the slicing will end.
 - `step` defaults to 1 and indicates the number of steps to take in between indexes.
 
-##### Retrieving Single Characters
+### Retrieving Single Characters
 
 The following examples show different ways of obtaining substrings from an original string `name`. When only one index
 is specified, a single character is returned. An index of `0` retrieves the first character of the string. Negative
@@ -1604,14 +1596,14 @@ print(name[0])
 
 # Output: C
 
-##################
+####
 
 print(name[-1])
 
 # Output: a
 ```
 
-##### Negative Start Index
+### Negative Start Index
 
 Using a negative start index `(-n)` with the default end value accesses the last `n` characters of the string. The
 following
@@ -1623,7 +1615,7 @@ print(name[-3:])
 # Output: nja
 ```
 
-##### End Index
+### End Index
 
 To specify only an end index, use `[:n]`, where n is the ending position. This will return the first `n` characters.
 
@@ -1633,7 +1625,7 @@ print(name[:4])
 # Output: Code
 ```
 
-##### Negative Step Value
+### Negative Step Value
 
 Given a negative step value, returns the results backward:
 
@@ -1644,7 +1636,7 @@ print(reversed)
 # Output: anNeo
 ```
 
-##### Keyword `in`
+### Keyword `in`
 
 The `in` keyword can be used to check for a specific substring, like in the example below:
 
@@ -1654,7 +1646,7 @@ print('de' in name)
 # Output: True
 ```
 
-##### `.find()` Method
+### `.find()` Method
 
 The string method `.find()` can also be used to find a subset. It returns the index of the first occurrence of the
 substring. If the substring is not found, it returns `-1`.
@@ -1663,4 +1655,3 @@ substring. If the substring is not found, it returns `-1`.
 name = "Code Ninja"
 print(name.find('ni'))
 ```
-
