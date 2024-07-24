@@ -61,6 +61,12 @@
         * [Negative Step Value](#negative-step-value)
         * [Keyword `in`](#keyword-in)
         * [`.find()` Method](#find-method)
+* [Modules](#modules)
+  * [Date and Time in Python](#date-and-time-in-python)
+  * [Aliasing with ‘as’ keyword](#aliasing-with-as-keyword)
+  * [Import Python Modules](#import-python-modules)
+  * [random.randint() and random.choice()](#randomrandint-and-randomchoice)
+  * [Module importing](#module-importing)
 
 ## Introduction
 
@@ -1654,4 +1660,148 @@ substring. If the substring is not found, it returns `-1`.
 ```commandline
 name = "Code Ninja"
 print(name.find('ni'))
+```
+
+## Modules
+
+In the world of programming, we care a lot about making code reusable. In most cases, we write code so that it can be
+reusable for ourselves. But sometimes we share code that’s helpful across a broad range of situations.
+
+In this lesson, we’ll explore how to use tools other people have built in Python that are not included automatically for
+you when you install Python. Python allows us to package code into `files` or `sets` of files called `modules`.
+
+A module is a collection of Python declarations intended broadly to be used as a tool. Modules are also often referred
+to as “libraries” or “packages” — a package is really a directory that holds a collection of modules.
+
+Usually, to use a module in a file, the basic syntax you need at the top of that file is:
+
+```commandline
+from module_name import object_name
+```
+
+Often, a library will include a lot of code that you don’t need that may slow down your program or conflict with
+existing code. Because of this, it makes sense to only import what you need.
+
+One common library that comes as part of the Python Standard Library is `datetime`. `datetime` helps you work with dates
+and times in Python.
+
+```commandline
+from datetime import datetime
+
+current_time = datetime.now()
+print(current_time) # Should print your current time for example '2024-07-24 20:57:42.479196'
+```
+
+### Date and Time in Python
+
+Python provides a module named datetime to deal with dates and times.
+
+It allows you to set `date`, `time` or both `date` and `time` using the `date()`, `time()` and `datetime()` functions
+respectively, after importing the `datetime` module.
+
+```commandline
+import datetime
+feb_16_2019 = datetime.date(year=2019, month=2, day=16)
+feb_16_2019 = datetime.date(2019, 2, 16)
+print(feb_16_2019) #2019-02-16
+
+time_13_48min_5sec = datetime.time(hour=13, minute=48, second=5)
+time_13_48min_5sec = datetime.time(13, 48, 5)
+print(time_13_48min_5sec) #13:48:05
+
+timestamp= datetime.datetime(year=2019, month=2, day=16, hour=13, minute=48, second=5)
+timestamp = datetime.datetime(2019, 2, 16, 13, 48, 5)
+print (timestamp) #2019-01-02 13:48:05
+```
+
+### Aliasing with ‘as’ keyword
+Notice that when we want to invoke the `randint()` function we call `random.randint()`. This is the default behavior 
+where Python offers a namespace for the module. A namespace isolates the `functions`, `classes`, and `variables` 
+defined in the module from the code in the file doing the importing. Your *local namespace*, meanwhile, is where your code is run.
+
+Python defaults to naming the namespace after the module being imported, but sometimes this name could be ambiguous or lengthy. Sometimes, the module’s name could also conflict with an object you have defined within your local namespace.
+
+Fortunately, this name can be altered by *aliasing* using the `as` keyword:
+
+```commandline
+import module_name as name_you_pick_for_the_module
+```
+
+Here is the `as` keyword in use:
+
+```commandline
+# Aliasing matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
+plt.plot(x, y)
+
+# Aliasing calendar as c
+import calendar as c
+print(c.month_name[1])
+```
+
+### Import Python Modules
+
+The Python **import** statement can be used to import Python modules from other files.
+
+Modules can be imported in three different ways: `import module`, `from module import functions`,
+or `from module import *`.
+
+`from module import *` is discouraged, as it can lead to a cluttered local namespace and can make the namespace unclear.
+
+The `*` is known as a `“wildcard”` and matches anything and everything. This syntax is considered dangerous because 
+it could *pollute* our local namespace. Pollution occurs when the same name could apply to two possible things. For 
+example, if you happen to have a function `floor()` focused on floor tiles, using `from math import *` would also import a function `floor()` that rounds down floats.
+
+```commandline
+# Three different ways to import modules:
+# First way
+import module
+module.function()
+
+# Second way
+from module import function
+function()
+
+# Third way
+from module import *
+function()
+```
+
+### random.randint() and random.choice()
+
+In Python, the `random` module offers methods to simulate non-deterministic behavior in selecting a random number from a
+range and choosing a random item from a list.
+
+The `randint()` method provides a uniform random selection from a range of integers. The `choice()` method provides a
+uniform selection of a random element from a sequence.
+
+```commandline
+
+# Returns a random integer N in a given range, such that start <= N <= end
+# random.randint(start, end)
+r1 = random.randint(0, 10)  
+print(r1) # Random integer where 0 <= r1 <= 10
+
+# Prints a random element from a sequence
+seq = ["a", "b", "c", "d", "e"]
+r2 = random.choice(seq)
+print(r2) # Random element in the sequence
+```
+
+### Module importing
+
+In Python, you can import and use the content of another file using `import filename`, if it is in the same folder as
+the current file you are writing.
+
+```commandline
+
+# file1 content
+# def f1_function():
+#	  return "Hello World"
+
+# file2
+import file1
+
+# Now we can use f1_function, because we imported file1
+f1_function()
 ```
