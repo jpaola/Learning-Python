@@ -62,11 +62,19 @@
         * [Keyword `in`](#keyword-in)
         * [`.find()` Method](#find-method)
 * [Modules](#modules)
-  * [Date and Time in Python](#date-and-time-in-python)
-  * [Aliasing with ‘as’ keyword](#aliasing-with-as-keyword)
-  * [Import Python Modules](#import-python-modules)
-  * [random.randint() and random.choice()](#randomrandint-and-randomchoice)
-  * [Module importing](#module-importing)
+    * [Date and Time in Python](#date-and-time-in-python)
+    * [Aliasing with ‘as’ keyword](#aliasing-with-as-keyword)
+    * [Import Python Modules](#import-python-modules)
+    * [random.randint() and random.choice()](#randomrandint-and-randomchoice)
+    * [Module importing](#module-importing)
+* [Introduction to Dictionaries in Python](#introduction-to-dictionaries-in-python)
+  * [Creating a Dictionary](#creating-a-dictionary)
+  * [Accessing a Dictionary](#accessing-a-dictionary)
+  * [Iterating Through a Dictionary](#iterating-through-a-dictionary)
+  * [Adding an Entry](#adding-an-entry)
+  * [Creating a Dictionary using Dictionary Comprehension](#creating-a-dictionary-using-dictionary-comprehension)
+  * [Replacing an Entry in an Existing Dictionary](#replacing-an-entry-in-an-existing-dictionary)
+  * [Built-in Dictionary Methods](#built-in-dictionary-methods)
 
 ## Introduction
 
@@ -1715,11 +1723,14 @@ print (timestamp) #2019-01-02 13:48:05
 ```
 
 ### Aliasing with ‘as’ keyword
-Notice that when we want to invoke the `randint()` function we call `random.randint()`. This is the default behavior 
-where Python offers a namespace for the module. A namespace isolates the `functions`, `classes`, and `variables` 
-defined in the module from the code in the file doing the importing. Your *local namespace*, meanwhile, is where your code is run.
 
-Python defaults to naming the namespace after the module being imported, but sometimes this name could be ambiguous or lengthy. Sometimes, the module’s name could also conflict with an object you have defined within your local namespace.
+Notice that when we want to invoke the `randint()` function we call `random.randint()`. This is the default behavior
+where Python offers a namespace for the module. A namespace isolates the `functions`, `classes`, and `variables`
+defined in the module from the code in the file doing the importing. Your *local namespace*, meanwhile, is where your
+code is run.
+
+Python defaults to naming the namespace after the module being imported, but sometimes this name could be ambiguous or
+lengthy. Sometimes, the module’s name could also conflict with an object you have defined within your local namespace.
 
 Fortunately, this name can be altered by *aliasing* using the `as` keyword:
 
@@ -1748,9 +1759,10 @@ or `from module import *`.
 
 `from module import *` is discouraged, as it can lead to a cluttered local namespace and can make the namespace unclear.
 
-The `*` is known as a `“wildcard”` and matches anything and everything. This syntax is considered dangerous because 
-it could *pollute* our local namespace. Pollution occurs when the same name could apply to two possible things. For 
-example, if you happen to have a function `floor()` focused on floor tiles, using `from math import *` would also import a function `floor()` that rounds down floats.
+The `*` is known as a `“wildcard”` and matches anything and everything. This syntax is considered dangerous because
+it could *pollute* our local namespace. Pollution occurs when the same name could apply to two possible things. For
+example, if you happen to have a function `floor()` focused on floor tiles, using `from math import *` would also import
+a function `floor()` that rounds down floats.
 
 ```commandline
 # Three different ways to import modules:
@@ -1805,3 +1817,164 @@ import file1
 # Now we can use f1_function, because we imported file1
 f1_function()
 ```
+
+## Introduction to Dictionaries in Python
+
+A dictionary is a data set of key-value pairs. It provides a way to map pieces of data to each other and allows for
+quick access to values associated with keys.
+
+In Python, dictionaries are dynamic and mutable, which means they can change.
+
+Note: As of Python version 3.7, dictionaries are ordered based on insertion, but this is not the case in previous
+versions.
+
+**Syntax**
+
+```commandline
+dictionary_name = { key1: value1,  key2: value2,  key3: value3 }
+```
+
+Each entry in a dictionary is a key-value pair. Each pair is separated by a comma.
+
+Dictionary keys must be immutable types such as numbers and strings because keys should not change. Keys cannot be lists
+because lists are mutable, and it will raise a `TypeError`.
+
+Values can be any type, such as strings, numbers, lists, and even other dictionaries.
+
+### Creating a Dictionary
+
+An empty dictionary is created with curly braces:
+
+```commandline
+diner = {}
+```
+
+An empty dictionary can also be created using the built-in function, `dict()`, with no arguments:
+
+```commandline
+diner = dict()
+```
+
+A dictionary with entries:
+
+```commandline
+coffee_shop = { "cold brew": 3.50, "latte": 4.25, "cappuccino": 3.99 }
+```
+
+The three key-value pairs in the `coffee_shop` dictionary:
+
+```commandline
+"cold brew": 3.50
+"latte": 4.25
+"cappuccino": 3.99
+```
+
+### Accessing a Dictionary
+
+The values in a dictionary can be accessed by passing the associated key name in a `dictionary[key]` syntax:
+
+```commandline
+coffee_shop = { "cold brew": 3.50, "latte": 4.25, "cappuccino": 3.99 }
+
+print(coffee_shop["cold brew"])
+# Output: 3.5
+```
+
+When a value is retrieved from a key that does not exist, `KeyError` is raised. If a value is assigned to a key that
+does not exist, the new key-value pair will be added. If a value is assigned to an existing dictionary key, it replaces
+the existing value.
+
+### Iterating Through a Dictionary
+There are several ways to iterate through a dictionary depending on which data that is accessed: keys, values, or both.
+
+The following consists of four `for` loops that iterate through the `coffee_shop` dictionary:
+
+```commandline
+coffee_shop = { "cold brew": 3.50, "latte": 4.25, "cappucino": 3.99 }
+
+for key in coffee_shop.keys():
+    print(key)
+
+for value in coffee_shop.values():
+    print(value)
+
+for item in coffee_shop.items():
+    print(item)
+
+for key, value in coffee_shop.items():
+    print(key, value)
+    
+ # Output:
+    cold brew
+    latte
+    cappucino
+    3.5
+    4.25
+    3.99
+    ('cold brew', 3.5)
+    ('latte', 4.25)
+    ('cappucino', 3.99)
+    cold brew 3.5
+    latte 4.25
+    cappucino 3.99
+```
+
+The for loops access and print each key, value, key-value tuple, and individual key-values in coffee_shop, respectively.
+
+### Adding an Entry
+To add an entry, use square brackets to create an index into a `new_key` and assign it a `new_value`:
+
+```commandline
+my_dict[new_key] = new_value
+```
+
+### Creating a Dictionary using Dictionary Comprehension
+Like a list comprehension, a dictionary comprehension is a Pythonic way to create a dictionary. They can be used to filter and manipulate data in tons of useful ways. The syntax is as follows:
+
+```commandline
+new_dict = { expression for key, value in old_dict.items() if condition }
+```
+
+The `if` condition at the end is optional, but is a great tool for filtering data. For example, given a dictionary with a person’s name and age, make a new dictionary that only contains people with an age under 25:
+
+```commandline
+person_age = { "Mark": 55, "Shiela": 28, "Bryce": 24, "Jim": 41, "Eric": 33, "Ally": 23 }
+person_age_filtered = { name: age for name, age in person_age.items() if age < 25 }
+```
+
+The expression is `name: age`, as that’s how the new dictionary will be formatted. Then, the typical for loop iteration, `for name, age in person_age.items()`. Lastly, the if condition filters out the results.
+
+The expression can also perform operations on the data being extracted. For example, to create a dictionary with key value pairs of a number and its square given a list of numbers:
+
+```commandline
+nums_list = [ 1, 2, 3, 4, 5 ]
+nums_squared = { num: num**2 for num in nums_list }
+```
+
+`nums_squared` will produce a result of: `{ 1: 1, 2: 4, 3: 9, 4: 16, 5: 25 }`
+
+### Replacing an Entry in an Existing Dictionary
+If a key needs to be updated in an existing dictionary, it uses the same syntax for adding an entry into a dictionary (`dictionary[new_key] = new_value)`, but instead, the new_key argument is replaced with an already existing key in the desired dictionary `(dictionary[existing_key] = new_value)`.
+
+```commandline
+person_age = { "Mark": 55, "Shiela": 28, "Bryce": 24, "Jim": 41, "Eric": 33, "Ally": 23 }
+
+# Looks like it's Mark's Birthday! Let's update our dictionary to reflect his new age:
+person_age['Mark'] = 56
+```
+
+Now, when the `"Mark"` key is accessed from the `person_age` dictionary, it will produce value 56.
+
+### Built-in Dictionary Methods
+- `.clear()` - Removes all entries in a dictionary.
+- `.copy()` - Returns a copy of a dictionary.
+- `.fromkeys()` - Returns a dictionary with the specified keys.
+- `.get()` - Returns the value of a dictionary entry for a specified key, with an optional fallback value.
+- `.items()` - Returns a list of tuples for each key-value pair in a dictionary.
+- `.keys()` - Returns a list of keys for a dictionary.
+- `.pop()` - Returns the value of a specified key, then removes the key-value pair from a dictionary.
+- `.popitem()` - Returns the last inserted key-value pair from a dictionary as a tuple, and removes the entry.
+- `.setdefault()` - Returns the value of a specified key. If the key does not exist, it is inserted with the specified 
+value.
+- `.update()` - Adds the entries in a specified dictionary, or iterable of key-value pairs, to a dictionary.
+- `.values()` - Returns a view of values for a dictionary.
