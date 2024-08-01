@@ -173,8 +173,22 @@ spread = {"past": tarot.pop(13), "present": tarot.pop(22), "future": tarot.pop(1
 for key, value in spread.items():
     print("Your {} is the {} card.".format(key, value))
 
-
 # Output:
 # Your past is the Death card.
 # Your present is the The Fool card.
 # Your future is the Wheel of Fortune card.
+
+
+#########################
+
+oscars = {"Best Picture": "Moonlight", "Best Actor": "Casey Affleck", "Best Actress": "Emma Stone",
+          "Animated Feature": "Zootopia"}
+
+for element in oscars:
+    print(element)
+
+# Output:
+# Best Picture
+# Best Actor
+# Best Actress
+# Animated Feature
