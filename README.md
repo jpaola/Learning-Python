@@ -75,6 +75,11 @@
   * [Creating a Dictionary using Dictionary Comprehension](#creating-a-dictionary-using-dictionary-comprehension)
   * [Replacing an Entry in an Existing Dictionary](#replacing-an-entry-in-an-existing-dictionary)
   * [Built-in Dictionary Methods](#built-in-dictionary-methods)
+    * [Safely Get a Key](#safely-get-a-key)
+    * [Delete a Key](#delete-a-key)
+    * [Get All Keys](#get-all-keys)
+    * [Get All Values](#get-all-values)
+    * [Get All Items](#get-all-items)
 
 ## Introduction
 
@@ -1978,3 +1983,142 @@ Now, when the `"Mark"` key is accessed from the `person_age` dictionary, it will
 value.
 - `.update()` - Adds the entries in a specified dictionary, or iterable of key-value pairs, to a dictionary.
 - `.values()` - Returns a view of values for a dictionary.
+
+#### Safely Get a Key
+We can’t predict every key a user may call and add all of those placeholder values to our dictionary.
+
+Dictionaries have a `.get()` method to search for a value instead of `the_dict[key]` notation we have been using.
+If the key you are trying to `.get()` does not exist, it will return `None` by default:
+
+```commandline
+building_heights = {"Burj Khalifa": 828, "Shanghai Tower": 632, "Abraj Al Bait": 601, "Ping An": 599, "Lotte World Tower": 554.5, "One World Trade": 541.3}
+
+# this line will return 632:
+building_heights.get("Shanghai Tower")
+
+# this line will return None:
+building_heights.get("My House")
+```
+
+You can also specify a value to return if the key does not exist.
+
+For example, we might want to return a building height of 0 if our desired building is not in the dictionary:
+
+```commandline
+print(building_heights.get('Shanghai Tower', 0)) # Prints 632
+print(building_heights.get('Mt Olympus', 0)) # Prints 0
+print(building_heights.get('Kilimanjaro', 'No Value')) # Prints 'No Value'
+```
+
+#### Delete a Key
+Sometimes we want to get a key and remove it from the dictionary. Imagine we were running a raffle, and we have this dictionary mapping ticket numbers to prizes:
+
+```commandline
+raffle = {223842: "Teddy Bear", 872921: "Concert Tickets", 320291: "Gift Basket", 412123: "Necklace", 298787: "Pasta Maker"}
+```
+
+When we get a ticket number, we want to return the prize and also remove that pair from the dictionary, since the prize has been given away. We can use `.pop()` to do this. Just like with `.get()`, we can provide a default value to return if the key does not exist in the dictionary:
+
+```commandline
+print(raffle.pop(320291, "No Prize"))
+# Prints "Gift Basket"
+print(raffle)
+# Prints {223842: "Teddy Bear", 872921: "Concert Tickets", 412123: "Necklace", 298787: "Pasta Maker"}
+print(raffle.pop(100000, "No Prize"))
+# Prints "No Prize"
+print(raffle)
+# Prints {223842: "Teddy Bear", 872921: "Concert Tickets", 412123: "Necklace", 298787: "Pasta Maker"}
+print(raffle.pop(872921, "No Prize"))
+# Prints "Concert Tickets"
+print(raffle)
+# Prints {223842: "Teddy Bear", 412123: "Necklace", 298787: "Pasta Maker"}
+```
+
+`.pop()` works to delete items from a dictionary, when you know the key value.
+
+#### Get All Keys
+Sometimes we want to operate on all of the keys in a dictionary. For example, if we have a dictionary of students in a math class and their grades:
+
+```commandline
+test_scores = {"Grace":[80, 72, 90], "Jeffrey":[88, 68, 81], "Sylvia":[80, 82, 84], "Pedro":[98, 96, 95], "Martin":[78, 80, 78], "Dina":[64, 60, 75]}
+```
+
+We want to get a roster of the students in the class, without including their grades. We can do this with the built-in `list()` function:
+
+```commandline
+print(list(test_scores))
+# Prints ["Grace", "Jeffrey", "Sylvia", "Pedro", "Martin", "Dina"]
+```
+
+Dictionaries also have a `.keys()` method that returns a `dict_keys` object. A `dict_keys` object is a view object, which provides a look at the current state of the dictionary, without the user being able to modify anything. The `dict_keys` object returned by `.keys()` is a set of the keys in the dictionary. You cannot add or remove elements from a `dict_keys` object, but it can be used in the place of a list for iteration:
+
+```commandline
+for student in test_scores.keys():
+    print(student)
+```
+
+will yield:
+
+```commandline
+Grace
+Jeffrey
+Sylvia
+Pedro
+Martin
+Dina
+```
+
+#### Get All Values
+Dictionaries have a `.values()` method that returns a `dict_values` object (just like a `dict_keys` object but for values!) with all the values in the dictionary. It can be used in the place of a list for iteration:
+
+```
+test_scores = {"Grace":[80, 72, 90], "Jeffrey":[88, 68, 81], "Sylvia":[80, 82, 84], "Pedro":[98, 96, 95], "Martin":[78, 80, 78], "Dina":[64, 60, 75]}
+
+for score_list in test_scores.values():
+ print(score_list)
+```
+
+will yield:
+
+```commandline
+[80, 72, 90]
+[88, 68, 81]
+[80, 82, 84]
+[98, 96, 95]
+[78, 80, 78]
+[64, 60, 75]
+```
+
+There is no built-in function to get all the values as a list, but if you *really* want to, you can use:
+
+```commandline
+list(test_scores.values())
+```
+
+However, for most purposes, the dict_values object will act the way you want a list to act.
+
+#### Get All Items
+You can get both the keys and the values with the `.items()` method. Like `.keys()` and `.values()`, it returns a `dict_list` object. Each element of the `dict_list` returned by `.items()` is a tuple consisting of:
+
+```commandline
+(key, value)
+```
+
+To iterate through, you can use the following syntax:
+
+```commandline
+biggest_brands = {"Apple": 184, "Google": 141.7, "Microsoft": 80, "Coca-Cola": 69.7, "Amazon": 64.8}
+
+for company, value in biggest_brands.items():
+ print(company + " has a value of " + str(value) + " billion dollars. ")
+```
+
+which will yield the following output:
+
+```commandline
+Apple has a value of 184 billion dollars.
+Google has a value of 141.7 billion dollars.
+Microsoft has a value of 80 billion dollars.
+Coca-Cola has a value of 69.7 billion dollars.
+Amazon has a value of 64.8 billion dollars.
+```
