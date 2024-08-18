@@ -68,18 +68,18 @@
     * [random.randint() and random.choice()](#randomrandint-and-randomchoice)
     * [Module importing](#module-importing)
 * [Introduction to Dictionaries in Python](#introduction-to-dictionaries-in-python)
-  * [Creating a Dictionary](#creating-a-dictionary)
-  * [Accessing a Dictionary](#accessing-a-dictionary)
-  * [Iterating Through a Dictionary](#iterating-through-a-dictionary)
-  * [Adding an Entry](#adding-an-entry)
-  * [Creating a Dictionary using Dictionary Comprehension](#creating-a-dictionary-using-dictionary-comprehension)
-  * [Replacing an Entry in an Existing Dictionary](#replacing-an-entry-in-an-existing-dictionary)
-  * [Built-in Dictionary Methods](#built-in-dictionary-methods)
-    * [Safely Get a Key](#safely-get-a-key)
-    * [Delete a Key](#delete-a-key)
-    * [Get All Keys](#get-all-keys)
-    * [Get All Values](#get-all-values)
-    * [Get All Items](#get-all-items)
+    * [Creating a Dictionary](#creating-a-dictionary)
+    * [Accessing a Dictionary](#accessing-a-dictionary)
+    * [Iterating Through a Dictionary](#iterating-through-a-dictionary)
+    * [Adding an Entry](#adding-an-entry)
+    * [Creating a Dictionary using Dictionary Comprehension](#creating-a-dictionary-using-dictionary-comprehension)
+    * [Replacing an Entry in an Existing Dictionary](#replacing-an-entry-in-an-existing-dictionary)
+    * [Built-in Dictionary Methods](#built-in-dictionary-methods)
+        * [Safely Get a Key](#safely-get-a-key)
+        * [Delete a Key](#delete-a-key)
+        * [Get All Keys](#get-all-keys)
+        * [Get All Values](#get-all-values)
+        * [Get All Items](#get-all-items)
 
 ## Introduction
 
@@ -859,7 +859,7 @@ for i in big_number_list:
 
 ## Functions
 
-A function consists of many parts, so let’s first get familiar with its core - a function definition.
+A function consists of many parts, so let’s first get familiar with its core, a function definition.
 
 **Note:** Function names in Python are written in snake_case.
 
@@ -1890,6 +1890,7 @@ does not exist, the new key-value pair will be added. If a value is assigned to 
 the existing value.
 
 ### Iterating Through a Dictionary
+
 There are several ways to iterate through a dictionary depending on which data that is accessed: keys, values, or both.
 
 The following consists of four `for` loops that iterate through the `coffee_shop` dictionary:
@@ -1927,6 +1928,7 @@ for key, value in coffee_shop.items():
 The for loops access and print each key, value, key-value tuple, and individual key-values in coffee_shop, respectively.
 
 ### Adding an Entry
+
 To add an entry, use square brackets to create an index into a `new_key` and assign it a `new_value`:
 
 ```commandline
@@ -1934,22 +1936,27 @@ my_dict[new_key] = new_value
 ```
 
 ### Creating a Dictionary using Dictionary Comprehension
-Like a list comprehension, a dictionary comprehension is a Pythonic way to create a dictionary. They can be used to filter and manipulate data in tons of useful ways. The syntax is as follows:
+
+Like a list comprehension, a dictionary comprehension is a Pythonic way to create a dictionary. They can be used to
+filter and manipulate data in tons of useful ways. The syntax is as follows:
 
 ```commandline
 new_dict = { expression for key, value in old_dict.items() if condition }
 ```
 
-The `if` condition at the end is optional, but is a great tool for filtering data. For example, given a dictionary with a person’s name and age, make a new dictionary that only contains people with an age under 25:
+The `if` condition at the end is optional, but is a great tool for filtering data. For example, given a dictionary with
+a person’s name and age, make a new dictionary that only contains people with an age under 25:
 
 ```commandline
 person_age = { "Mark": 55, "Shiela": 28, "Bryce": 24, "Jim": 41, "Eric": 33, "Ally": 23 }
 person_age_filtered = { name: age for name, age in person_age.items() if age < 25 }
 ```
 
-The expression is `name: age`, as that’s how the new dictionary will be formatted. Then, the typical for loop iteration, `for name, age in person_age.items()`. Lastly, the if condition filters out the results.
+The expression is `name: age`, as that’s how the new dictionary will be formatted. Then, the typical for loop
+iteration, `for name, age in person_age.items()`. Lastly, the if condition filters out the results.
 
-The expression can also perform operations on the data being extracted. For example, to create a dictionary with key value pairs of a number and its square given a list of numbers:
+The expression can also perform operations on the data being extracted. For example, to create a dictionary with key
+value pairs of a number and its square given a list of numbers:
 
 ```commandline
 nums_list = [ 1, 2, 3, 4, 5 ]
@@ -1959,7 +1966,10 @@ nums_squared = { num: num**2 for num in nums_list }
 `nums_squared` will produce a result of: `{ 1: 1, 2: 4, 3: 9, 4: 16, 5: 25 }`
 
 ### Replacing an Entry in an Existing Dictionary
-If a key needs to be updated in an existing dictionary, it uses the same syntax for adding an entry into a dictionary (`dictionary[new_key] = new_value)`, but instead, the new_key argument is replaced with an already existing key in the desired dictionary `(dictionary[existing_key] = new_value)`.
+
+If a key needs to be updated in an existing dictionary, it uses the same syntax for adding an entry into a
+dictionary (`dictionary[new_key] = new_value)`, but instead, the new_key argument is replaced with an already existing
+key in the desired dictionary `(dictionary[existing_key] = new_value)`.
 
 ```commandline
 person_age = { "Mark": 55, "Shiela": 28, "Bryce": 24, "Jim": 41, "Eric": 33, "Ally": 23 }
@@ -1971,6 +1981,7 @@ person_age['Mark'] = 56
 Now, when the `"Mark"` key is accessed from the `person_age` dictionary, it will produce value 56.
 
 ### Built-in Dictionary Methods
+
 - `.clear()` - Removes all entries in a dictionary.
 - `.copy()` - Returns a copy of a dictionary.
 - `.fromkeys()` - Returns a dictionary with the specified keys.
@@ -1979,12 +1990,13 @@ Now, when the `"Mark"` key is accessed from the `person_age` dictionary, it will
 - `.keys()` - Returns a list of keys for a dictionary.
 - `.pop()` - Returns the value of a specified key, then removes the key-value pair from a dictionary.
 - `.popitem()` - Returns the last inserted key-value pair from a dictionary as a tuple, and removes the entry.
-- `.setdefault()` - Returns the value of a specified key. If the key does not exist, it is inserted with the specified 
-value.
+- `.setdefault()` - Returns the value of a specified key. If the key does not exist, it is inserted with the specified
+  value.
 - `.update()` - Adds the entries in a specified dictionary, or iterable of key-value pairs, to a dictionary.
 - `.values()` - Returns a view of values for a dictionary.
 
 #### Safely Get a Key
+
 We can’t predict every key a user may call and add all of those placeholder values to our dictionary.
 
 Dictionaries have a `.get()` method to search for a value instead of `the_dict[key]` notation we have been using.
@@ -2011,13 +2023,17 @@ print(building_heights.get('Kilimanjaro', 'No Value')) # Prints 'No Value'
 ```
 
 #### Delete a Key
-Sometimes we want to get a key and remove it from the dictionary. Imagine we were running a raffle, and we have this dictionary mapping ticket numbers to prizes:
+
+Sometimes we want to get a key and remove it from the dictionary. Imagine we were running a raffle, and we have this
+dictionary mapping ticket numbers to prizes:
 
 ```commandline
 raffle = {223842: "Teddy Bear", 872921: "Concert Tickets", 320291: "Gift Basket", 412123: "Necklace", 298787: "Pasta Maker"}
 ```
 
-When we get a ticket number, we want to return the prize and also remove that pair from the dictionary, since the prize has been given away. We can use `.pop()` to do this. Just like with `.get()`, we can provide a default value to return if the key does not exist in the dictionary:
+When we get a ticket number, we want to return the prize and also remove that pair from the dictionary, since the prize
+has been given away. We can use `.pop()` to do this. Just like with `.get()`, we can provide a default value to return
+if the key does not exist in the dictionary:
 
 ```commandline
 print(raffle.pop(320291, "No Prize"))
@@ -2037,20 +2053,26 @@ print(raffle)
 `.pop()` works to delete items from a dictionary, when you know the key value.
 
 #### Get All Keys
-Sometimes we want to operate on all of the keys in a dictionary. For example, if we have a dictionary of students in a math class and their grades:
+
+Sometimes we want to operate on all of the keys in a dictionary. For example, if we have a dictionary of students in a
+math class and their grades:
 
 ```commandline
 test_scores = {"Grace":[80, 72, 90], "Jeffrey":[88, 68, 81], "Sylvia":[80, 82, 84], "Pedro":[98, 96, 95], "Martin":[78, 80, 78], "Dina":[64, 60, 75]}
 ```
 
-We want to get a roster of the students in the class, without including their grades. We can do this with the built-in `list()` function:
+We want to get a roster of the students in the class, without including their grades. We can do this with the
+built-in `list()` function:
 
 ```commandline
 print(list(test_scores))
 # Prints ["Grace", "Jeffrey", "Sylvia", "Pedro", "Martin", "Dina"]
 ```
 
-Dictionaries also have a `.keys()` method that returns a `dict_keys` object. A `dict_keys` object is a view object, which provides a look at the current state of the dictionary, without the user being able to modify anything. The `dict_keys` object returned by `.keys()` is a set of the keys in the dictionary. You cannot add or remove elements from a `dict_keys` object, but it can be used in the place of a list for iteration:
+Dictionaries also have a `.keys()` method that returns a `dict_keys` object. A `dict_keys` object is a view object,
+which provides a look at the current state of the dictionary, without the user being able to modify anything.
+The `dict_keys` object returned by `.keys()` is a set of the keys in the dictionary. You cannot add or remove elements
+from a `dict_keys` object, but it can be used in the place of a list for iteration:
 
 ```commandline
 for student in test_scores.keys():
@@ -2069,7 +2091,9 @@ Dina
 ```
 
 #### Get All Values
-Dictionaries have a `.values()` method that returns a `dict_values` object (just like a `dict_keys` object but for values!) with all the values in the dictionary. It can be used in the place of a list for iteration:
+
+Dictionaries have a `.values()` method that returns a `dict_values` object (just like a `dict_keys` object but for
+values!) with all the values in the dictionary. It can be used in the place of a list for iteration:
 
 ```
 test_scores = {"Grace":[80, 72, 90], "Jeffrey":[88, 68, 81], "Sylvia":[80, 82, 84], "Pedro":[98, 96, 95], "Martin":[78, 80, 78], "Dina":[64, 60, 75]}
@@ -2098,7 +2122,9 @@ list(test_scores.values())
 However, for most purposes, the dict_values object will act the way you want a list to act.
 
 #### Get All Items
-You can get both the keys and the values with the `.items()` method. Like `.keys()` and `.values()`, it returns a `dict_list` object. Each element of the `dict_list` returned by `.items()` is a tuple consisting of:
+
+You can get both the keys and the values with the `.items()` method. Like `.keys()` and `.values()`, it returns
+a `dict_list` object. Each element of the `dict_list` returned by `.items()` is a tuple consisting of:
 
 ```commandline
 (key, value)
