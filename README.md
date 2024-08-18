@@ -67,6 +67,8 @@
     * [Import Python Modules](#import-python-modules)
     * [random.randint() and random.choice()](#randomrandint-and-randomchoice)
     * [Module importing](#module-importing)
+    * [Standard Modules](#standard-modules)
+    * [Third-Party Modules](#third-party-modules)
 * [Introduction to Dictionaries in Python](#introduction-to-dictionaries-in-python)
     * [Creating a Dictionary](#creating-a-dictionary)
     * [Accessing a Dictionary](#accessing-a-dictionary)
@@ -1822,6 +1824,31 @@ import file1
 # Now we can use f1_function, because we imported file1
 f1_function()
 ```
+
+### Standard Modules
+Python comes with several different built-in modules that provide a variety of functions. They include:
+
+* The `collections` module provides additional collection types.
+* The `functools` module provides functions supporting a `functional programming` approach.
+* The `glob` module allows matching file paths per `Unix` shell rules.
+* The `json` module provides functions for dealing with `JSON` objects.
+* The `math` module provides useful mathematical functions.
+* The `random` module provides functions for dealing with random numbers.
+* The `time` module provides various functions for dealing with time.
+
+### Third-Party Modules
+Python has a very broad selection of third-party modules that are devoted to particular tasks.
+
+These are third-party Python modules that have topic entries:
+
+* `NumPy`: a popular open-source Python library used for complex mathematical operations and multi-dimensional `arrays`.
+* `Pandas`: a popular open-source Python module used for data analysis and manipulation.
+
+Below is a selection of other third-party modules of note:
+
+* `PySpark` - A Python API for Apache Spark, consisting of several modules.
+* `Pytorch` - An open-source framework that offers an optimized tensor library for deep learning.
+* `tqdm` - A module that allows the generation of progress bars in Python.
 
 ## Introduction to Dictionaries in Python
 
