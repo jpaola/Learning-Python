@@ -82,6 +82,13 @@
         * [Get All Keys](#get-all-keys)
         * [Get All Values](#get-all-values)
         * [Get All Items](#get-all-items)
+* [Files](#files)
+  * [File Handling](#file-handling)
+  * [Files and Command Line](#files-and-command-line)
+  * [About __main__](#about-__main__)
+  * [File Methods](#file-methods)
+    * [Iterating Through Lines](#iterating-through-lines)
+    * [Reading a Line](#reading-a-line)
 
 ## Introduction
 
@@ -2175,3 +2182,166 @@ Microsoft has a value of 80 billion dollars.
 Coca-Cola has a value of 69.7 billion dollars.
 Amazon has a value of 64.8 billion dollars.
 ```
+
+## Files
+Computers use file systems to store and retrieve data. Each file is an individual container of related information. If you’ve ever saved a document, downloaded a song, or even sent an email, you’ve created a file on some computer somewhere.
+
+Files are named locations on the computer’s disk that permanently store information for future use of its data. They 
+are used to permanently store data in non-volatile memory (e.g., hard disk) as opposed to volatile sources like Random Access Memory `RAM`, which loses its data when the computer is turned off.
+
+### File Handling
+Handling files is a common feature that many languages use to work with the computer's file system. In Python, file 
+handling is possible and usually takes place in the following order:
+
+1. Open (or create) the file.
+2. Perform operations on the file, such as reading or writing to it.
+3. Close the file to free up any resources used.
+
+**Example 1**
+The small example below demonstrates how one process of file handling could work:
+
+```commandline
+# Create, or overwrite, a file and open for writing
+file = open("myfile.txt", "w")
+file.write("Hello world!")
+file.close()
+
+# Open existing file to read and print text content
+file = open("myfile.txt", "r")
+first_two_bytes = file.read(2)
+next_three_bytes = file.read(3)
+the_rest = file.read()
+print(first_two_bytes, next_three_bytes, the_rest, sep="\n")
+file.close()
+```
+
+In the first part of the code example, a plain text file named `myfile.txt` was created and opened in the `"w"` 
+"write"-mode. Then a piece of text was written to the file and closed afterward.
+
+In the next part, a few calls to the `.read()` method are assigned to some `variables` and then each one is printed 
+on a new line:
+
+```commandline
+He
+llo
+ world!
+```
+
+**Example 2**
+Let’s say we had a file called `real_cool_document.txt` with these contents:
+
+```commandline
+Wowsers!
+```
+
+We could read that file from another, named `script.py`, as follows:
+
+```commandline
+with open('real_cool_document.txt') as cool_doc:
+  cool_contents = cool_doc.read()
+print(cool_contents)
+
+```
+
+This opens a file object called `cool_doc` and creates a new indented block where you can read the contents of the 
+opened file. We then read the contents of the file `cool_doc` using `cool_doc.read()` and save the resulting string 
+into the variable `cool_contents`. Then we print `cool_contents`, which outputs the statement `Wowsers!`.
+
+### Files and Command Line
+Python files can be run as `command line arguments` using their filename.
+
+```commandline
+python example_file.py
+
+# Alternate
+python3 example_file.py
+
+```
+
+This executes a file's inner `__main__` environment variable, which then runs the code within. This code may include 
+variable declarations, operations, and function calls.
+
+### About __main__
+Any time a `.py` file is run and interpreted, certain variables are set up and linked with the file. This includes `__main__` environment variable, which is assigned as the file’s `__name__` variable. All Python programs feature these variables, which can be verified as in the following example:
+
+```commandline
+# example.py
+
+import imported_example
+
+if __name__ == '__main__':
+  print('Example file: ' + __name__)
+
+print('Imported example file: ' + imported_example.__name__)
+
+```
+
+When `python example.py` is run on the command line, the following will be printed:
+
+```commandline
+Example file: __main__
+Imported example file: imported_example_file
+```
+
+The main fine being run, `example.py`, has its `__name__` set to `__main__` while the `imported_example.py` file's 
+`__name__` is literally set to the name of the file.
+
+### File Methods
+
+* `.close()` - Allows the user to close an open file within the IDE.
+* `.read()` - Allows the user to read the contents of an open file and return the number of associated bytes.
+* `.readline()` - Returns the first line of content from an open file.
+* `.remove()` - Allows the user to delete a file if it exists.
+* `.rmdir()` - Allows the user to delete a folder if it exists.
+* `.seek()` - Allows the user to move the location of the file handle's reference point within an open file from one 
+  place to another.
+* `.truncate()` - Allows the user to resize the file to a given number of bytes when the file is accessed through the 
+append mode.
+* `.unlink()` - Allows the user to delete a file path if it exists.
+* `.writable()` - Allows the user to check if a file is writable or not. The function will return True if the file is 
+writable and accessed in append or write mode, and False if it was accessed in read mode.
+* `.write()` - Adds additional text to a file when the file is opened in append mode.
+* `Context Managers` - Context managers allow users to perform operations within a certain overarching context.
+
+#### Iterating Through Lines
+When we read a file, we might want to grab the whole document in a single string, like `.read()` would return. But what if we wanted to store each line in a variable? We can use the `.readlines()` function to read a text file line by line instead of having the whole thing. Suppose we have a file:
+
+**keats_sonnet.txt**
+```commandline
+To one who has been long in city pent,
+’Tis very sweet to look into the fair
+And open face of heaven,—to breathe a prayer
+Full in the smile of the blue firmament.
+```
+
+**script.py**
+```commandline
+with open('keats_sonnet.txt') as keats_sonnet:
+  for line in keats_sonnet.readlines():
+    print(line)
+```
+The above script creates a temporary file object called `keats_sonnet` that points to the file **keats_sonnet.txt.** 
+It then iterates over each line in the document and prints the entire file out.
+
+#### Reading a Line
+Sometimes you don’t want to iterate through a whole file. For that, there’s a different file method, `.readline()`, which will only read a single line at a time. If the entire document is read line by line in this way subsequent calls to `.readline()` will not throw an error but will start returning an empty string (`""`). Suppose we had this file:
+
+**millay_sonnet.txt**
+
+```commandline
+I shall forget you presently, my dear,
+So make the most of this, your little day,
+Your little month, your little half a year,
+Ere I forget, or die, or move away,
+```
+
+**script.py**
+
+```commandline
+with open('millay_sonnet.txt') as sonnet_doc:
+  first_line = sonnet_doc.readline()
+  second_line = sonnet_doc.readline()
+  print(second_line)
+```
+This script also creates a file object called `sonnet_doc` that points to the file **millay_sonnet.txt**. It then 
+reads in the first line using `sonnet_doc.readline()` and saves that to the variable `first_line`. It then saves the second line (`So make the most of this, your little day,`) into the variable `second_line` and then prints it out.
