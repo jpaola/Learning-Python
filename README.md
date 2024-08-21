@@ -93,6 +93,7 @@
     * [Appending to a File](#appending-to-a-file)
     * [The "with" Keyword](#the-with-keyword)
   * [CSV Files](#csv-files)
+    * [Reading CSV Files](#reading-csv-files)
 
 ## Introduction
 
