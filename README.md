@@ -90,6 +90,7 @@
     * [Iterating Through Lines](#iterating-through-lines)
     * [Reading a Line](#reading-a-line)
     * [Writing a File](#writing-a-file)
+    * [Appending to a File](#appending-to-a-file)
 
 ## Introduction
 
@@ -2307,7 +2308,7 @@ writable and accessed in append or write mode, and False if it was accessed in r
 #### Iterating Through Lines
 When we read a file, we might want to grab the whole document in a single string, like `.read()` would return. But what if we wanted to store each line in a variable? We can use the `.readlines()` function to read a text file line by line instead of having the whole thing. Suppose we have a file:
 
-**keats_sonnet.txt**
+*keats_sonnet.txt*
 ```commandline
 To one who has been long in city pent,
 ’Tis very sweet to look into the fair
@@ -2315,7 +2316,7 @@ And open face of heaven,—to breathe a prayer
 Full in the smile of the blue firmament.
 ```
 
-**script.py**
+*script.py*
 ```commandline
 with open('keats_sonnet.txt') as keats_sonnet:
   for line in keats_sonnet.readlines():
@@ -2327,7 +2328,7 @@ It then iterates over each line in the document and prints the entire file out.
 #### Reading a Line
 Sometimes you don’t want to iterate through a whole file. For that, there’s a different file method, `.readline()`, which will only read a single line at a time. If the entire document is read line by line in this way subsequent calls to `.readline()` will not throw an error but will start returning an empty string (`""`). Suppose we had this file:
 
-**millay_sonnet.txt**
+*millay_sonnet.txt*
 
 ```commandline
 I shall forget you presently, my dear,
@@ -2336,7 +2337,7 @@ Your little month, your little half a year,
 Ere I forget, or die, or move away,
 ```
 
-**script.py**
+*script.py*
 
 ```commandline
 with open('millay_sonnet.txt') as sonnet_doc:
@@ -2350,7 +2351,7 @@ reads in the first line using `sonnet_doc.readline()` and saves that to the vari
 #### Writing a File
 Reading a file is all well and good, but what if we want to create a file of our own? With Python we can do just that. It turns out that our `open()` function that we’re using to open a file to read needs another argument to open a file to write to.
 
-**script.py**
+*script.py*
 ```commandline
 with open('generated_file.txt', 'w') as gen_file:
   gen_file.write("What an incredible file!")
@@ -2360,3 +2361,45 @@ Here we pass the argument `'w'` to `open()` in order to indicate to open the fil
 
 This code creates a new file in the same folder as *script.py* and gives it the text `What an incredible file!`. It’s 
 important to note that if there is already a file called `generated_file.txt` it will completely overwrite that file, erasing whatever its contents were before.
+
+#### Appending to a File
+There is a way to simply add a line to a file without completely deleting it. Instead of opening the file using the 
+argument `'w'` for write-mode, we open it with `'a'` for append-mode. If we generate a file with the following contents:
+
+*generate_file.txt*
+```commandline
+This is a popular file...
+```
+
+Then we can add another line to that file with the following code:
+
+*script.py*
+```commandline
+with open('generated_file.txt', 'a') as gen_file:
+  gen_file.write("\n... and it still is")
+```
+
+In the code above we open a file object in the temporary variable `gen_file`. This variable points to the file 
+*generated_file.txt* and, since it’s open in append-mode, adds the string `\n... and it still is` to the file. The 
+newline character `\n` moves to the next line before adding the rest of the string. If you were to open the file 
+after running the script, it would look like this:
+
+*generated_file.txt*
+```commandline
+This was a popular file...
+... and it still is
+```
+
+Notice that opening the file in append-mode, with `'a'` as an argument to `open()`, means that using the file 
+object’s `.write()` method appends whatever is passed to the end of the file. If we were to run *script.py* again, 
+this would be what *generated_file.txt* looks like:
+
+*generated_file.txt*
+```commandline
+This was a popular file...
+... and it still is
+... and it still is
+```
+
+Notice that we've appended `"n\... and it still is"` to the file a second time! This is because in *script.py* we 
+opened *generated_file.txt* in append-mode.
