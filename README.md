@@ -36,6 +36,11 @@
     * [Built-in Functions](#built-in-functions)
     * [Scope](#scope)
     * [Return Values](#return-values)
+    * [Lambda Functions](#lambda-functions)
+      * [Syntax of Lambda Functions](#syntax-of-lambda-functions)
+      * [Using Lambda Functions](#using-lambda-functions)
+      * [Advantages and Limitations](#advantages-and-limitations)
+      * [Best Practices](#best-practices)
 * [Strings](#strings)
     * [Accessing the Characters of a String](#accessing-the-characters-of-a-string)
     * [Iterate String](#iterate-string)
@@ -1134,6 +1139,117 @@ Tomorrow the weather will be Sunny
 The following day it will be Sunny
 Two days from now it will be Cloudy
 ```
+
+### Lambda Functions
+Lambda functions, also known as anonymous functions, are small, inline functions that can have any number of arguments but only one expression. They are defined using the `lambda` keyword and are typically used for short, simple operations.
+
+Unlike regular functions defined with `def`, lambda functions don’t have a name and are usually used in situations where you need a simple function for a short period of time.
+
+Let’s compare a regular function with a lambda function:
+```commandline
+# Regular function 
+
+def square(x): 
+
+    return x ** 2 
+
+  
+
+# Lambda function 
+
+square_lambda = lambda x: x ** 2 
+```
+
+Both functions square the input, but the lambda function is more concise.
+
+#### Syntax of Lambda Functions
+The basic syntax of a lambda function is:
+
+```
+lambda [arguments]: [expression] 
+```
+Here are a couple of simple examples:
+
+```
+# Lambda function to add two numbers 
+
+add = lambda a, b: a + b 
+
+print(add(3, 5))  # Output: 8 
+
+  
+
+# Lambda function to print a name 
+
+greeting = lambda name: f"Hello, {name}!" 
+
+print(greeting("Alice"))  # Output: Hello, Alice! 
+```
+
+#### Using Lambda Functions
+Lambda functions are most commonly used as arguments to higher-order functions such as `map()`, `filter()`, and `sorted()`. Higher-order functions are functions that can accept other functions, such as lambda functions, as arguments. Let’s look at some examples:
+
+- *Using Lambda with map()* - The `map()` function applies the given lambda function to each item in a list:
+```commandline
+numbers = [1, 2, 3, 4, 5] 
+
+squared = list(map(lambda x: x ** 2, numbers)) 
+
+print(squared)  # Output: [1, 4, 9, 16, 25] 
+```
+In this example, the lambda function `lambda x: x ** 2` squares each number in the `numbers` list. The `map()` function applies this lambda to each element, resulting in a new list where every number is squared.
+
+- *Using Lambda with filter()* - The `filter()` function creates a new list of elements for which the given lambda 
+function returns True:
+```
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
+
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers)) 
+
+print(even_numbers)  # Output: [2, 4, 6, 8, 10] 
+
+```
+Here, the lambda function `lambda x: x % 2 == 0` checks if a number is even. The `filter()` function uses this lambda to keep only the even numbers from the original list, creating a new list containing only even numbers.
+
+- *Using Lambda wih sorted()* - The `sorted()` function can use a lambda function as a key for custom sorting:
+
+```
+students = [('Alice', 'A', 15), ('Bob', 'B', 12), ('Charlie', 'A', 20)] 
+
+sorted_students = sorted(students, key=lambda x: x[2]) 
+
+print(sorted_students) 
+
+# Output: [('Bob', 'B', 12), ('Alice', 'A', 15), ('Charlie', 'A', 20)] 
+```
+In this case, the lambda function `lambda x: x[2]` is used as the key for sorting. It tells the `sorted()` function to use the third element (index 2) of each tuple for comparison. As a result, the list of students is sorted based on their age (the third element in each tuple).
+
+#### Advantages and Limitations
+Lambda functions offer several advantages:
+
+- They are concise and can make code more readable for simple operations.
+- They’re convenient for small, throwaway functions, especially as arguments to higher-order functions.
+
+However, they also have limitations:
+
+- They can only contain expressions, not statements.
+- They are limited to a single expression, which can make complex operations difficult.
+- They can be harder to debug due to their anonymous nature.
+
+#### Best Practices
+Use lambda functions when:
+
+- You need a simple function for a short period.
+- You’re passing a simple function as an argument to higher-order functions.
+
+Avoid lambda functions when:
+
+- The operation is complex or requires multiple expressions.
+- You need to reuse the function multiple times (define a regular function instead).
+
+When lambda functions become too complex, it’s often better to use a regular function defined with `def`. This improves readability and makes your code easier to maintain.
+
+Lambda functions are a powerful feature in Python that allow you to write more concise and functional code. They’re particularly useful for simple operations and as arguments to higher-order functions. However, it’s important to use them judiciously and switch to regular functions when the logic becomes more complex.
 
 ## Strings
 
