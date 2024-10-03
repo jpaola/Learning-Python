@@ -114,14 +114,15 @@
     * [Reading JSON Files](#reading-json-files)
     * [Writing a JSON File](#writing-a-json-file)
 * [Classes](#classes)
-  * [`class` methods](#class-methods)
-  * [`repr` method](#repr-method)
   * [Instantiate Python Class](#instantiate-python-class)
   * [Python Class Variables](#python-class-variables)
-  * [`init` method](#init-method)
+  * [`class` methods](#class-methods)
+  * [Dunder Methods](#dunder-methods)
+    * [`__init__` method](#__init__-method)
+    * [`__repr__` method](#__repr__-method)
+  * [`__main__` in Python](#__main__-in-python)
   * [`type()` function](#type-function)
   * [`dir()` function](#dir-function)
-  * [`__main__` in Python](#__main__-in-python)
 
 ## Introduction
 
@@ -2881,40 +2882,6 @@ class Animal:
     self.name = name
     self.number_of_legs = number_of_legs
 ```
-### `class` methods
-In Python, *methods* are functions that are defined as part of a **class**. It is common practice that the first 
-argument of any method that is part of a class is the actual object calling the method. This argument is usually called `self`.
-
-```commandline
-# Dog class
-class Dog:
-  # Method of the class
-  def bark(self):
-    print("Ham-Ham")
-
-# Create a new instance
-charlie = Dog()
-
-# Call the method
-charlie.bark()
-# This will output "Ham-Ham"
-```
-
-### `repr` method
-The Python `__repr__()` method is used to tell Python what the *string representation* of the class should be. It can 
-only have one parameter, `self`, and it should return a string.
-
-```commandline
-class Employee:
-  def __init__(self, name):
-    self.name = name
-
-  def __repr__(self):
-    return self.name
-
-john = Employee('John')
-print(john) # John
-```
 
 ### Instantiate Python Class
 In Python, a class needs to be instantiated before use.
@@ -2946,9 +2913,54 @@ print(x.class_variable) #I am a Class Variable!
 print(y.class_variable) #I am a Class Variable!
 ```
 
-### `init` method
-In Python, the `.__init__()` method is used to initialize a newly created object. It is called every time the class is instantiated.
+### `class` methods
+In Python, *methods* are functions that are defined as part of a **class**. It is common practice that the first 
+argument of any method that is part of a class is the actual object calling the method. This argument is usually called `self`.
 
+```commandline
+# Dog class
+class Dog:
+  # Method of the class
+  def bark(self):
+    print("Ham-Ham")
+
+# Create a new instance
+charlie = Dog()
+
+# Call the method
+charlie.bark()
+# This will output "Ham-Ham"
+```
+
+### Dunder Methods
+Dunder Methods, alternatively known as magic methods, use a special syntax to perform class-specific operations in 
+Python. Here, “dunder” is the short for “double underscores”. The operations that it performs include the following:
+
+- Performing arithmetic operations on numeric-type attributes.
+- Initializing a new class instance and binding any necessary attributes.
+- Overloading certain methods to make their behaviors unique to that class.
+
+```
+# Syntax
+class ClassName:
+  __methodname__(self, param1, param2, ... paramN):
+    # Method body here
+```
+
+The `methodname` is all lowercase even if there is more than one word in the name. The first parameter, `self`, is 
+never explicitly passed as an argument because it refers to the class instance the method would be called against. However, any parameters defined afterward (`param1, param2, ... paramN`) must be passed as arguments when the dunder method is called.
+
+1. `__init__()` - Initializes a newly created object and is called each time a new class instance is created.
+2. `__new__()` - Creates a new instance of a class.
+3. `__repr__()` - Returns the string representation of the class
+4. `__str__()` - Returns a reader-friendly string representation of a class object.
+
+#### `__init__` method
+The `__init__()` method is used to initialize a newly created object. It is called every time the class is instantiated.
+
+Methods that are used to prepare an object being instantiated are called constructors. The word “constructor” is used to describe similar features in other object-oriented programming languages, but programmers who refer to a constructor in Python are usually talking about the `__init__()` method.
+
+*Example 1.*
 ```commandline
 class Animal:
   def __init__(self, voice):
@@ -2962,6 +2974,55 @@ print(cat.voice) # Output: Meow
 dog = Animal('Woof') 
 print(dog.voice) # Output: Woof
 ```
+
+*Example 2.*
+In this example `Shouter()` looks a lot like a function call. If it’s a function, can we pass parameters 
+to it?
+
+We absolutely can, and those parameters will be received by the `__init__()` method.
+
+```commandline
+class Shouter:
+  def __init__(self, phrase):
+    # make sure phrase is a string
+    if type(phrase) == str:
+
+      # then shout it out
+      print(phrase.upper())
+
+shout1 = Shouter("shout")
+# prints "SHOUT"
+
+shout2 = Shouter("shout")
+# prints "SHOUT"
+
+shout3 = Shouter("let it all out")
+# prints "LET IT ALL OUT"
+```
+
+#### `__repr__` method
+The Python `__repr__()` method is used to tell Python what the *string representation* of the class should be. It can 
+only have one parameter, `self`, and it should return a string.
+
+```commandline
+class Employee:
+  def __init__(self, name):
+    self.name = name
+
+  def __repr__(self):
+    return self.name
+
+john = Employee('John')
+print(john) # John
+```
+
+### `__main__` in Python
+In Python, `__main__` is an identifier used to reference the current file context. When a module is read from standard input, a script, or from an interactive prompt, its `__name__` is set equal to `__main__`.
+
+Suppose we create an instance of a class called `CoolClass`. Printing the `type()` of the instance will result in:
+
+`<class '__main__.CoolClass'>`
+This means that the class `CoolClass` was defined in the current script file.
 
 ### `type()` function
 The Python `type()` function returns the data type of the argument passed to it.
@@ -3000,11 +3061,3 @@ print(dir())
 print(dir(Employee))
 # ['__doc__', '__init__', '__module__', 'print_name']
 ```
-
-### `__main__` in Python
-In Python, `__main__` is an identifier used to reference the current file context. When a module is read from standard input, a script, or from an interactive prompt, its `__name__` is set equal to `__main__`.
-
-Suppose we create an instance of a class called `CoolClass`. Printing the `type()` of the instance will result in:
-
-`<class '__main__.CoolClass'>`
-This means that the class `CoolClass` was defined in the current script file.
